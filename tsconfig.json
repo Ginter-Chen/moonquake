@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "allowJs": true,
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx",
+        "src/lang/index.js",
+        "sfc.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "noImplicitAny": false,
+    "target": "es6",
+    "files": [
+        "shims-vue.d.ts"
+    ]
+}
