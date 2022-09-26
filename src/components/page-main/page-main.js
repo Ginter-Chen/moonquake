@@ -1,7 +1,7 @@
 
 import * as THREE from "three";
 
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default {
   name: 'page-main',
@@ -28,7 +28,20 @@ export default {
       const z = temp * MathUtils.cos(lg);
       return {x: x, y: y, z: z}
   } //end: points
-
+  /**
+   * 經緯度
+   * lat:經度
+   * lon:维度
+   * radius：月球半徑
+   */
+  function calcPosFromLatLonRad(lat,lon,radius){
+    var phi   = (90-lat)*(Math.PI/180);
+    var theta = (lon+180)*(Math.PI/180);
+    var x = -(radius * Math.sin(phi)*Math.cos(theta));
+    var z = (radius * Math.sin(phi)*Math.sin(theta));
+    var y = (radius * Math.cos(phi));
+    return [x,y,z];
+  }
   
   
  
@@ -60,7 +73,22 @@ export default {
 
 			const Moon = new THREE.Mesh( geometry, material );
 			scene.add( Moon );
-
+      //#region 測試用 
+      const geometry_box = new THREE.BoxGeometry( .1, .1, .1 );
+      const material_box = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      const cube = new THREE.Mesh( geometry_box, material_box );
+      cube.position.x = calcPosFromLatLonRad(0,0,1)[0];
+      cube.position.y = calcPosFromLatLonRad(0,0,1)[1];
+      cube.position.z = calcPosFromLatLonRad(0,0,1)[2];
+      scene.add( cube );
+      const geometry_box2 = new THREE.BoxGeometry( .1, .1, .1 );
+      const material_box2 = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+      const cube_2 = new THREE.Mesh( geometry_box2, material_box2 );
+      cube_2.position.x = calcPosFromLatLonRad(0,20,1)[0];
+      cube_2.position.y = calcPosFromLatLonRad(0,20,1)[1];
+      cube_2.position.z = calcPosFromLatLonRad(0,20,1)[2];
+      scene.add( cube_2 );
+      //#endregion
 			camera.position.z = 5;
 
 			function animate() {
