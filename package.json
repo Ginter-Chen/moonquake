@@ -10,7 +10,9 @@
   "dependencies": {
     "@types/three": "^0.144.0",
     "core-js": "^3.8.3",
+    "stats-js": "^1.0.1",
     "three": "^0.144.0",
+    "three-obj-mtl-loader": "^1.0.3",
     "three-orbit-controls": "^82.1.0",
     "three-orbitcontrols": "^2.110.3",
     "vue": "^3.2.13",
