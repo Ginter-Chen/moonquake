@@ -86,20 +86,20 @@ let label;
 			const Moon = new THREE.Mesh( geometry, material );
 			scene.add( Moon );
       //#region 測試用 
-      const geometry_box = new THREE.BoxGeometry( .1, .1, .1 );
-      const material_box = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-      const cube = new THREE.Mesh( geometry_box, material_box );
-      cube.position.x = calcPosFromLatLonRad(0,0,1)[0];
-      cube.position.y = calcPosFromLatLonRad(0,0,1)[1];
-      cube.position.z = calcPosFromLatLonRad(0,0,1)[2];
-      scene.add( cube );
-      const geometry_box2 = new THREE.BoxGeometry( .1, .1, .1 );
-      const material_box2 = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-      const cube_2 = new THREE.Mesh( geometry_box2, material_box2 );
-      cube_2.position.x = calcPosFromLatLonRad(0,20,1)[0];
-      cube_2.position.y = calcPosFromLatLonRad(0,20,1)[1];
-      cube_2.position.z = calcPosFromLatLonRad(0,20,1)[2];
-      scene.add( cube_2 );
+      // const geometry_box = new THREE.BoxGeometry( .1, .1, .1 );
+      // const material_box = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      // const cube = new THREE.Mesh( geometry_box, material_box );
+      // cube.position.x = calcPosFromLatLonRad(0,0,1)[0];
+      // cube.position.y = calcPosFromLatLonRad(0,0,1)[1];
+      // cube.position.z = calcPosFromLatLonRad(0,0,1)[2];
+      // scene.add( cube );
+      // const geometry_box2 = new THREE.BoxGeometry( .1, .1, .1 );
+      // const material_box2 = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+      // const cube_2 = new THREE.Mesh( geometry_box2, material_box2 );
+      // cube_2.position.x = calcPosFromLatLonRad(0,20,1)[0];
+      // cube_2.position.y = calcPosFromLatLonRad(0,20,1)[1];
+      // cube_2.position.z = calcPosFromLatLonRad(0,20,1)[2];
+      // scene.add( cube_2 );
       //#endregion
 			camera.position.z = 5;
 
@@ -206,7 +206,7 @@ let label;
         let dummy = new THREE.Object3D();
         let phase = [];
         for (let i = 0; i < markerCount; i++) {
-          dummy.position.randomDirection().setLength(rad + 0.1);
+          dummy.position.randomDirection().setLength(rad + 0.001);
           dummy.lookAt(dummy.position.clone().setLength(rad + 1));
           dummy.updateMatrix();
           markers.setMatrixAt(i, dummy.matrix);
