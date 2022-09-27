@@ -15,7 +15,7 @@
   #markerLabel {
     --baseColor: rgb(255, 250, 250);
     width: 230px;
-    height: 48px;
+    height: 64px;
     color: var(--baseColor);
     font-family: Monospace;
     font-size: 14px;

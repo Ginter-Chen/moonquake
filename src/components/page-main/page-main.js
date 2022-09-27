@@ -3,7 +3,30 @@ import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer';
-
+//#region 
+/**
+* 經緯度
+* lon:經度
+* lat:维度
+* intensity:強度
+*/
+var testdata = [
+  {
+    id:0,
+    date:"1999/01/5 15:33",
+    lon:0,
+    lat:0,
+    intensity:4
+  },
+  {
+    id:99,
+    date:"1999/01/4 17:22",
+    lon:23,
+    lat:40,
+    intensity:2
+  }
+];
+//#endregion
 export default {
   name: 'page-main',
   components: {},
@@ -12,7 +35,8 @@ export default {
   const markerLabel = ref(null)
   const clostBtn = ref(null);
   const idNumRef = ref(null);
-  const magnitudeRef = ref(null);
+  const dateRef = ref(null);
+  const intensityRef = ref(null);
   const coordinatesRef = ref(null);
 
 
@@ -44,8 +68,8 @@ let label;
   } //end: points
   /**
    * 經緯度
-   * lat:經度
-   * lon:维度
+   * lon:經度
+   * lat:维度
    * radius：月球半徑
    */
   function calcPosFromLatLonRad(lat,lon,radius){
@@ -79,28 +103,25 @@ let label;
 			const geometry = new THREE.SphereGeometry( 1, 32, 16 );
 
       // 上材質
-      const texture = new THREE.TextureLoader().load( require('assets/images/textures/ldem_3_8bit.jpg') );
-      const normalMap = new THREE.TextureLoader().load( require('assets/images/textures/lroc_color_poles_1k.jpg') );
-			const material = new THREE.MeshBasicMaterial( { map: texture , normalMap: normalMap} );
+      const texture = new THREE.TextureLoader().load( require('assets/images/textures/lroc_color_poles_1k.jpg') );
+      const normalMap = new THREE.TextureLoader().load( require('assets/images/textures/ldem_3_8bit_turn.png') );
+			// const material = new THREE.MeshBasicMaterial( { map: texture , normalMap: normalMap} );
+			const material = new THREE.MeshPhongMaterial( { map: texture , normalMap: normalMap} );
 
 			const Moon = new THREE.Mesh( geometry, material );
 			scene.add( Moon );
-      //#region 測試用 
-      // const geometry_box = new THREE.BoxGeometry( .1, .1, .1 );
-      // const material_box = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-      // const cube = new THREE.Mesh( geometry_box, material_box );
-      // cube.position.x = calcPosFromLatLonRad(0,0,1)[0];
-      // cube.position.y = calcPosFromLatLonRad(0,0,1)[1];
-      // cube.position.z = calcPosFromLatLonRad(0,0,1)[2];
-      // scene.add( cube );
-      // const geometry_box2 = new THREE.BoxGeometry( .1, .1, .1 );
-      // const material_box2 = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-      // const cube_2 = new THREE.Mesh( geometry_box2, material_box2 );
-      // cube_2.position.x = calcPosFromLatLonRad(0,20,1)[0];
-      // cube_2.position.y = calcPosFromLatLonRad(0,20,1)[1];
-      // cube_2.position.z = calcPosFromLatLonRad(0,20,1)[2];
-      // scene.add( cube_2 );
-      //#endregion
+      const light = new THREE.DirectionalLight(0xffffff, 1)
+      light.position.set(5, 2, 5)
+      scene.add(light)
+      const light1 = new THREE.DirectionalLight(0xffffff, 1)
+      light1.position.set(-5, 2, 5)
+      scene.add(light1)
+      const light2 = new THREE.DirectionalLight(0xffffff, 1)
+      light2.position.set(-5, -2, -5)
+      scene.add(light2)
+      const light3 = new THREE.DirectionalLight(0xffffff, 1)
+      light3.position.set(5, -2, -5)
+      scene.add(light3)
 			camera.position.z = 5;
 
 
@@ -160,7 +181,7 @@ let label;
         
         // marker 
         const markerCount = 5;
-        let markerInfo = []; // information on markers
+        // let markerInfo = []; // information on markers
         let gMarker = new THREE.PlaneGeometry();
         let mMarker = new THREE.MeshBasicMaterial({
           color: 'yellow',
@@ -201,24 +222,29 @@ let label;
           }
         });
         mMarker.defines = { USE_UV: " " }; // needed to be set to be able to work with UVs
-        let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
+        // let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
+        let markers = new THREE.InstancedMesh(gMarker, mMarker, testdata.length);
   
         let dummy = new THREE.Object3D();
         let phase = [];
-        for (let i = 0; i < markerCount; i++) {
-          dummy.position.randomDirection().setLength(rad + 0.001);
+        for (let i = 0; i < testdata.length; i++) {
+          // dummy.position.randomDirection().setLength(rad + 0.001);
+          var _p = calcPosFromLatLonRad(testdata[i].lon,testdata[i].lat,1);
+          dummy.position.set(_p[0],_p[1],_p[2]);
           dummy.lookAt(dummy.position.clone().setLength(rad + 1));
           dummy.updateMatrix();
           markers.setMatrixAt(i, dummy.matrix);
           phase.push(Math.random());
-  
-          markerInfo.push({
-            id: i + 1,
-            mag: THREE.MathUtils.randInt(1, 10),
-            crd: dummy.position.clone()
-          });
+          
+
+          testdata[i]["crd"] = dummy.position.clone();
+          // markerInfo.push({
+          //   id: i + 1,
+          //   mag: THREE.MathUtils.randInt(1, 10),
+          //   crd: dummy.position.clone()
+          // });
         }
-        info = [...markerInfo];
+        // info = [...markerInfo];
         gMarker.setAttribute(
           "phase",
           new THREE.InstancedBufferAttribute(new Float32Array(phase), 1)
@@ -236,7 +262,8 @@ let label;
         // let divMag = document.getElementById("magnitude");
         // let divCrd = document.getElementById("coordinates");
         let divID = idNumRef.value;
-        let divMag = magnitudeRef.value;
+        let divDate = dateRef.value;
+        let divIntensity = intensityRef.value;
         let divCrd = coordinatesRef.value;
 
         // 點擊事件
@@ -250,14 +277,19 @@ let label;
           });
           if (intersections.length > 0) {
             let iid = intersections[0].instanceId;
-            let mi = markerInfo[iid];
-            divID.innerHTML = `ID: <b>${mi.id}</b>`;
-            divMag.innerHTML = `Mag: <b>${mi.mag}</b>`;
-            divCrd.innerHTML = `X: <b>${mi.crd.x.toFixed(2)}</b>; Y: <b>${mi.crd.y.toFixed(2)}</b>; Z: <b>${mi.crd.z.toFixed(2)}</b>`;
-            label.position.copy(mi.crd);
+            // let mi = markerInfo[iid];
+            // divID.innerHTML = `ID: <b>${mi.id}</b>`;
+            // divMag.innerHTML = `Mag: <b>${mi.mag}</b>`;
+            // divCrd.innerHTML = `X: <b>${mi.crd.x.toFixed(2)}</b>; Y: <b>${mi.crd.y.toFixed(2)}</b>; Z: <b>${mi.crd.z.toFixed(2)}</b>`;
+            // label.position.copy(mi.crd);
+            divID.innerHTML = `ID: <b>${testdata[iid].id}</b>`;
+            divDate.innerHTML = `Time: <b>${testdata[iid].date}</b>`;
+            divIntensity.innerHTML = `Intensity: <b>${testdata[iid].intensity}</b>`;
+            divCrd.innerHTML = `Lon: <b>${testdata[iid].lon}</b>; Lat: <b>${testdata[iid].lat}</b>`;
+            label.position.copy(testdata[iid].crd);
             label.element.animate([
               {width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px"},
-              {width: "230px", height: "50px", marginTop: "-25px", maginLeft: "120px"}
+              {width: "230px", height: "64px", marginTop: "-25px", maginLeft: "120px"}
             ],{
               duration: 250
             });
@@ -307,7 +339,8 @@ let label;
       markerLabel,
       clostBtn,
       idNumRef,
-      magnitudeRef,
+      dateRef,
+      intensityRef,
       coordinatesRef,
       info,
 
