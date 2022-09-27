@@ -16,14 +16,18 @@ var testdata = [
     date:"1999/01/5 15:33",
     lon:0,
     lat:0,
-    intensity:4
+    intensity:4,
+    deep:77,
+    type:"AI",
   },
   {
     id:99,
     date:"1999/01/4 17:22",
     lon:23,
     lat:40,
-    intensity:2
+    intensity:2,
+    deep:20.6,
+    type:"AI",
   }
 ];
 //#endregion
@@ -282,9 +286,9 @@ let label;
             // divMag.innerHTML = `Mag: <b>${mi.mag}</b>`;
             // divCrd.innerHTML = `X: <b>${mi.crd.x.toFixed(2)}</b>; Y: <b>${mi.crd.y.toFixed(2)}</b>; Z: <b>${mi.crd.z.toFixed(2)}</b>`;
             // label.position.copy(mi.crd);
-            divID.innerHTML = `ID: <b>${testdata[iid].id}</b>`;
+            divID.innerHTML = `ID: <b>${testdata[iid].id}</b> ; Type: <b>${testdata[iid].type}</b>`;
             divDate.innerHTML = `Time: <b>${testdata[iid].date}</b>`;
-            divIntensity.innerHTML = `Intensity: <b>${testdata[iid].intensity}</b>`;
+            divIntensity.innerHTML = `Intensity: <b>${testdata[iid].intensity}</b> ; Deep: <b>${testdata[iid].deep} KM</b>`;
             divCrd.innerHTML = `Lon: <b>${testdata[iid].lon}</b>; Lat: <b>${testdata[iid].lat}</b>`;
             label.position.copy(testdata[iid].crd);
             label.element.animate([
