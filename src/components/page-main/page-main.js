@@ -3,34 +3,14 @@ import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer';
-//#region 
 /**
 * 經緯度
 * lon:經度
 * lat:维度
-* intensity:強度
+* magnitude:強度
 */
-var testdata = [
-  {
-    id:0,
-    date:"1999/01/5 15:33",
-    lon:0,
-    lat:0,
-    intensity:4,
-    deep:77,
-    type:"AI",
-  },
-  {
-    id:99,
-    date:"1999/01/4 17:22",
-    lon:23,
-    lat:40,
-    intensity:2,
-    deep:20.6,
-    type:"AI",
-  }
-];
-//#endregion
+import moonQuakeData from '../../assets/json/all_data.json';
+
 export default {
   name: 'page-main',
   components: {},
@@ -39,8 +19,10 @@ export default {
   const markerLabel = ref(null)
   const clostBtn = ref(null);
   const idNumRef = ref(null);
+  const typeRef = ref(null);
   const dateRef = ref(null);
-  const intensityRef = ref(null);
+  const magnitudeRef = ref(null);
+  const depthRef = ref(null);
   const coordinatesRef = ref(null);
 
 
@@ -126,7 +108,7 @@ let label;
       const light3 = new THREE.DirectionalLight(0xffffff, 1)
       light3.position.set(5, -2, -5)
       scene.add(light3)
-			camera.position.z = 5;
+			camera.position.x = 5;
 
 
     // label
@@ -209,7 +191,7 @@ let label;
             `.replace(
               `vec4 diffuseColor = vec4( diffuse, opacity );`,
               `
-              vec2 lUv = (vUv - 0.5) * 5.;
+              vec2 lUv = (vUv - 0.5) * 2.;
               float val = 0.;
               float lenUv = length(lUv);
               val = max(val, 1. - step(0.25, lenUv)); // central circle
@@ -220,20 +202,22 @@ let label;
               
               if (val < 0.5) discard;
               
-              vec4 diffuseColor = vec4( diffuse, opacity );`
+              vec4 diffuseColor = vec4( diffuse, opacity );
+              `
             );
             //console.log(shader.fragmentShader)
           }
         });
         mMarker.defines = { USE_UV: " " }; // needed to be set to be able to work with UVs
         // let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
-        let markers = new THREE.InstancedMesh(gMarker, mMarker, testdata.length);
+        let markers = new THREE.InstancedMesh(gMarker, mMarker, moonQuakeData.length);
   
         let dummy = new THREE.Object3D();
+        dummy.scale.set(.2,.2,.2);
         let phase = [];
-        for (let i = 0; i < testdata.length; i++) {
+        for (let i = 0; i < moonQuakeData.length; i++) {
           // dummy.position.randomDirection().setLength(rad + 0.001);
-          var _p = calcPosFromLatLonRad(testdata[i].lon,testdata[i].lat,1);
+          var _p = calcPosFromLatLonRad(moonQuakeData[i].lon,moonQuakeData[i].lat,1);
           dummy.position.set(_p[0],_p[1],_p[2]);
           dummy.lookAt(dummy.position.clone().setLength(rad + 1));
           dummy.updateMatrix();
@@ -241,7 +225,7 @@ let label;
           phase.push(Math.random());
           
 
-          testdata[i]["crd"] = dummy.position.clone();
+          moonQuakeData[i]["crd"] = dummy.position.clone();
           // markerInfo.push({
           //   id: i + 1,
           //   mag: THREE.MathUtils.randInt(1, 10),
@@ -266,8 +250,10 @@ let label;
         // let divMag = document.getElementById("magnitude");
         // let divCrd = document.getElementById("coordinates");
         let divID = idNumRef.value;
+        let divType = typeRef.value;
         let divDate = dateRef.value;
-        let divIntensity = intensityRef.value;
+        let divMagnitude = magnitudeRef.value;
+        let divDepth = depthRef.value;
         let divCrd = coordinatesRef.value;
 
         // 點擊事件
@@ -286,14 +272,16 @@ let label;
             // divMag.innerHTML = `Mag: <b>${mi.mag}</b>`;
             // divCrd.innerHTML = `X: <b>${mi.crd.x.toFixed(2)}</b>; Y: <b>${mi.crd.y.toFixed(2)}</b>; Z: <b>${mi.crd.z.toFixed(2)}</b>`;
             // label.position.copy(mi.crd);
-            divID.innerHTML = `ID: <b>${testdata[iid].id}</b> ; Type: <b>${testdata[iid].type}</b>`;
-            divDate.innerHTML = `Time: <b>${testdata[iid].date}</b>`;
-            divIntensity.innerHTML = `Intensity: <b>${testdata[iid].intensity}</b> ; Deep: <b>${testdata[iid].deep} KM</b>`;
-            divCrd.innerHTML = `Lon: <b>${testdata[iid].lon}</b>; Lat: <b>${testdata[iid].lat}</b>`;
-            label.position.copy(testdata[iid].crd);
+            divID.innerHTML = `ID: <b>${moonQuakeData[iid].id}</b>`;
+            divType.innerHTML = `Type: <b>${moonQuakeData[iid].type}</b>`;
+            divDate.innerHTML = `Time: <b>`+(moonQuakeData[iid].date==null?`Unknow`:`${moonQuakeData[iid].date}</b>`);
+            divMagnitude.innerHTML = `Magnitude: <b>`+(moonQuakeData[iid].magnitude==null?`Unknow`:`${moonQuakeData[iid].magnitude}</b>`);
+            divDepth.innerHTML = `depth: <b>`+(moonQuakeData[iid].depth==null?`Unknow`:`${moonQuakeData[iid].depth} KM</b>`);
+            divCrd.innerHTML = `Lon: <b>${moonQuakeData[iid].lon}</b>; Lat: <b>${moonQuakeData[iid].lat}</b>`;
+            label.position.copy(moonQuakeData[iid].crd);
             label.element.animate([
               {width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px"},
-              {width: "230px", height: "64px", marginTop: "-25px", maginLeft: "120px"}
+              {width: "230px", height: "96px", marginTop: "-25px", maginLeft: "120px"}
             ],{
               duration: 250
             });
@@ -343,8 +331,10 @@ let label;
       markerLabel,
       clostBtn,
       idNumRef,
+      typeRef,
       dateRef,
-      intensityRef,
+      magnitudeRef,
+      depthRef,
       coordinatesRef,
       info,
 

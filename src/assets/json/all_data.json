@@ -1,0 +1,1460 @@
+[
+    {
+        "id": "12 LM",
+        "date": "1969-11-20 22:17:17",
+        "lat": -3.94,
+        "lon": -21.2,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "13 S-IVB",
+        "date": "1970-04-15 02:09:41",
+        "lat": -2.75,
+        "lon": -27.86,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "14 S-IVB",
+        "date": "1971-02-04 07:40:55",
+        "lat": -8.09,
+        "lon": -26.02,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "14 LM",
+        "date": "1971-02-07 00:45:26",
+        "lat": -3.42,
+        "lon": -19.67,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "15 S-IVB",
+        "date": "1971-07-29 20:58:42",
+        "lat": -1.51,
+        "lon": -11.81,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "15 LM",
+        "date": "1971-08-03 03:03:37",
+        "lat": 26.36,
+        "lon": 0.25,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "16 S-IVB",
+        "date": "1972-04-19 21:02:04",
+        "lat": 1.3,
+        "lon": -23.8,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "17 S-IVB",
+        "date": "1972-12-10 20:32:42",
+        "lat": -4.21,
+        "lon": -12.31,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "17 LM",
+        "date": "1972-12-15 06:50:20",
+        "lat": 19.99,
+        "lon": 30.51,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "ai"
+    },
+    {
+        "id": "M04",
+        "date": "1972-01-04 06:31:19",
+        "lat": 74.1,
+        "lon": 2.6,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M05",
+        "date": "1972-05-13 08:45:39",
+        "lat": 1.5,
+        "lon": -17.1,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M06",
+        "date": "1972-07-17 21:50:57",
+        "lat": 32.8,
+        "lon": 137.6,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M07",
+        "date": "1972-07-31 18:08:15",
+        "lat": 24.0,
+        "lon": 10.1,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M08",
+        "date": "1972-08-29 22:58:33",
+        "lat": 15.8,
+        "lon": 22.9,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M12",
+        "date": "1973-09-26 20:46:16",
+        "lat": 28.7,
+        "lon": 41.1,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M13",
+        "date": "1973-12-24 10:03:19",
+        "lat": -24.8,
+        "lon": -25.1,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M14",
+        "date": "1974-04-19 18:30:03",
+        "lat": 7.4,
+        "lon": -33.6,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M15",
+        "date": "1974-07-17 12:05:02",
+        "lat": 20.3,
+        "lon": 6.5,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M16",
+        "date": "1974-11-21 13:15:40",
+        "lat": -7.3,
+        "lon": 19.9,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M17",
+        "date": "1974-12-15 09:07:15",
+        "lat": 1.6,
+        "lon": -8.2,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M18",
+        "date": "1975-03-05 21:49:22",
+        "lat": -52.4,
+        "lon": 4.2,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M19",
+        "date": "1975-04-12 18:12:38",
+        "lat": 2.0,
+        "lon": 43.2,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M20",
+        "date": "1975-05-04 09:59:28",
+        "lat": -36.4,
+        "lon": -121.3,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M21",
+        "date": "1976-01-13 07:11:22",
+        "lat": -39.4,
+        "lon": 62.8,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M24",
+        "date": "1976-05-28 06:01:56",
+        "lat": -16.8,
+        "lon": -10.0,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M25",
+        "date": "1976-11-14 23:13:06",
+        "lat": 23.8,
+        "lon": -73.9,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M26",
+        "date": "1977-04-17 23:32:06",
+        "lat": -20.5,
+        "lon": -63.8,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "M27",
+        "date": "1977-06-28 22:22:31",
+        "lat": -13.5,
+        "lon": -75.3,
+        "depth": 0.0,
+        "magnitude": null,
+        "type": "m"
+    },
+    {
+        "id": "SM01",
+        "date": "1971-04-17 07:00:55",
+        "lat": 48.0,
+        "lon": 35.0,
+        "depth": null,
+        "magnitude": 2.8,
+        "type": "sm"
+    },
+    {
+        "id": "SM02",
+        "date": "1971-05-20 17:25:10",
+        "lat": 42.0,
+        "lon": -24.0,
+        "depth": null,
+        "magnitude": 2.0,
+        "type": "sm"
+    },
+    {
+        "id": "SM03",
+        "date": "1971-07-11 13:24:45",
+        "lat": 43.0,
+        "lon": -47.0,
+        "depth": null,
+        "magnitude": 1.9,
+        "type": "sm"
+    },
+    {
+        "id": "SM04",
+        "date": "1972-01-02 22:29:40",
+        "lat": 54.0,
+        "lon": 101.0,
+        "depth": null,
+        "magnitude": 1.9,
+        "type": "sm"
+    },
+    {
+        "id": "SM05",
+        "date": "1972-09-17 14:35:55",
+        "lat": 12.0,
+        "lon": 46.0,
+        "depth": null,
+        "magnitude": 1.0,
+        "type": "sm"
+    },
+    {
+        "id": "SM06",
+        "date": "1972-12-06 23:08:20",
+        "lat": 51.0,
+        "lon": 45.0,
+        "depth": null,
+        "magnitude": 1.4,
+        "type": "sm"
+    },
+    {
+        "id": "SM07",
+        "date": "1972-12-09 03:50:15",
+        "lat": -20.0,
+        "lon": -80.0,
+        "depth": null,
+        "magnitude": 1.2,
+        "type": "sm"
+    },
+    {
+        "id": "SM08",
+        "date": "1973-02-08 22:52:10",
+        "lat": 33.0,
+        "lon": 35.0,
+        "depth": null,
+        "magnitude": 0.8,
+        "type": "sm"
+    },
+    {
+        "id": "SM09",
+        "date": "1973-03-13 07:56:30",
+        "lat": -84.0,
+        "lon": -134.0,
+        "depth": null,
+        "magnitude": 3.2,
+        "type": "sm"
+    },
+    {
+        "id": "SM10",
+        "date": "1973-06-20 20:22:00",
+        "lat": -1.0,
+        "lon": -71.0,
+        "depth": null,
+        "magnitude": 2.2,
+        "type": "sm"
+    },
+    {
+        "id": "SM11",
+        "date": "1973-10-01 03:58:00",
+        "lat": -37.0,
+        "lon": -29.0,
+        "depth": null,
+        "magnitude": 1.1,
+        "type": "sm"
+    },
+    {
+        "id": "SM12",
+        "date": "1974-02-23 21:16:50",
+        "lat": 36.0,
+        "lon": -16.0,
+        "depth": null,
+        "magnitude": 0.7,
+        "type": "sm"
+    },
+    {
+        "id": "SM13",
+        "date": "1974-03-27 09:11:00",
+        "lat": -48.0,
+        "lon": -106.0,
+        "depth": null,
+        "magnitude": 1.6,
+        "type": "sm"
+    },
+    {
+        "id": "SM14",
+        "date": "1974-04-19 13:35:15",
+        "lat": -37.0,
+        "lon": 42.0,
+        "depth": null,
+        "magnitude": 0.9,
+        "type": "sm"
+    },
+    {
+        "id": "SM16",
+        "date": "1974-07-11 00:46:30",
+        "lat": 21.0,
+        "lon": 88.0,
+        "depth": null,
+        "magnitude": 2.7,
+        "type": "sm"
+    },
+    {
+        "id": "SM17",
+        "date": "1975-01-03 01:42:00",
+        "lat": 29.0,
+        "lon": -98.0,
+        "depth": null,
+        "magnitude": 3.2,
+        "type": "sm"
+    },
+    {
+        "id": "SM18",
+        "date": "1975-01-12 03:14:10",
+        "lat": 75.0,
+        "lon": 40.0,
+        "depth": null,
+        "magnitude": 1.7,
+        "type": "sm"
+    },
+    {
+        "id": "SM19",
+        "date": "1975-01-13 00:26:20",
+        "lat": -2.0,
+        "lon": -51.0,
+        "depth": null,
+        "magnitude": 1.1,
+        "type": "sm"
+    },
+    {
+        "id": "SM20",
+        "date": "1975-02-13 22:03:50",
+        "lat": -19.0,
+        "lon": -26.0,
+        "depth": null,
+        "magnitude": 1.4,
+        "type": "sm"
+    },
+    {
+        "id": "SM21",
+        "date": "1975-05-07 06:37:05",
+        "lat": -49.0,
+        "lon": -45.0,
+        "depth": null,
+        "magnitude": 1.3,
+        "type": "sm"
+    },
+    {
+        "id": "SM22",
+        "date": "1975-05-27 23:29:00",
+        "lat": 3.0,
+        "lon": -58.0,
+        "depth": null,
+        "magnitude": 1.4,
+        "type": "sm"
+    },
+    {
+        "id": "SM23",
+        "date": "1975-11-10 07:52:55",
+        "lat": -8.0,
+        "lon": 64.0,
+        "depth": null,
+        "magnitude": 1.8,
+        "type": "sm"
+    },
+    {
+        "id": "SM24",
+        "date": "1976-01-04 11:18:55",
+        "lat": 50.0,
+        "lon": 30.0,
+        "depth": null,
+        "magnitude": 1.8,
+        "type": "sm"
+    },
+    {
+        "id": "SM25",
+        "date": "1976-01-12 08:18:05",
+        "lat": 38.0,
+        "lon": 44.0,
+        "depth": null,
+        "magnitude": 1.1,
+        "type": "sm"
+    },
+    {
+        "id": "SM26",
+        "date": "1976-03-06 10:12:40",
+        "lat": 50.0,
+        "lon": -20.0,
+        "depth": null,
+        "magnitude": 2.3,
+        "type": "sm"
+    },
+    {
+        "id": "SM27",
+        "date": "1976-03-08 14:42:10",
+        "lat": -19.0,
+        "lon": -12.0,
+        "depth": null,
+        "magnitude": 1.8,
+        "type": "sm"
+    },
+    {
+        "id": "SM28",
+        "date": "1976-05-16 12:32:40",
+        "lat": 77.0,
+        "lon": -10.0,
+        "depth": null,
+        "magnitude": 1.5,
+        "type": "sm"
+    },
+    {
+        "id": "A001",
+        "date": "1973-09-30 04:10:58",
+        "lat": -15.7,
+        "lon": -36.6,
+        "depth": 867.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A003",
+        "date": null,
+        "lat": -2.9,
+        "lon": -50.3,
+        "depth": 946.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A005",
+        "date": null,
+        "lat": 1.1,
+        "lon": -44.7,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A006",
+        "date": "1976-07-02 10:52:25",
+        "lat": 43.5,
+        "lon": 55.5,
+        "depth": 844.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A007",
+        "date": "1976-07-02 03:11:24",
+        "lat": 25.0,
+        "lon": 53.2,
+        "depth": 893.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A008",
+        "date": "1977-05-16 10:52:29",
+        "lat": -23.7,
+        "lon": -35.5,
+        "depth": 1086.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A009",
+        "date": "1977-04-16 19:58:04",
+        "lat": -6.0,
+        "lon": -19.7,
+        "depth": 1037.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A010",
+        "date": null,
+        "lat": -35.7,
+        "lon": -40.3,
+        "depth": 988.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A011",
+        "date": "1977-06-18 05:01:16",
+        "lat": 9.2,
+        "lon": 17.5,
+        "depth": 1187.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A013",
+        "date": null,
+        "lat": -19.1,
+        "lon": -41.7,
+        "depth": 973.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A014",
+        "date": "1973-05-28 18:53:12",
+        "lat": -29.6,
+        "lon": -44.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A015",
+        "date": null,
+        "lat": 0.7,
+        "lon": -3.9,
+        "depth": 747.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A016",
+        "date": "1972-10-08 15:24:35",
+        "lat": 7.5,
+        "lon": 6.3,
+        "depth": 1019.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A017",
+        "date": "1972-11-07 08:52:07",
+        "lat": 25.5,
+        "lon": -21.9,
+        "depth": 807.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A018",
+        "date": "1973-01-05 22:50:30",
+        "lat": 23.3,
+        "lon": 32.7,
+        "depth": 925.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A019",
+        "date": null,
+        "lat": 27.7,
+        "lon": 34.4,
+        "depth": 974.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A020",
+        "date": "1972-05-15 17:18:07",
+        "lat": 23.7,
+        "lon": -31.4,
+        "depth": 945.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A021",
+        "date": null,
+        "lat": -18.2,
+        "lon": -50.8,
+        "depth": 1037.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A022",
+        "date": null,
+        "lat": 21.6,
+        "lon": 43.6,
+        "depth": 788.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A024",
+        "date": "1977-06-12 18:17:38",
+        "lat": null,
+        "lon": null,
+        "depth": null,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A025",
+        "date": "1977-06-09 20:15:07",
+        "lat": 35.1,
+        "lon": 59.8,
+        "depth": 924.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A026",
+        "date": null,
+        "lat": 14.3,
+        "lon": 5.2,
+        "depth": 1122.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A027",
+        "date": "1977-05-16 00:01:51",
+        "lat": 23.0,
+        "lon": 20.4,
+        "depth": 1085.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A028",
+        "date": null,
+        "lat": 8.1,
+        "lon": 10.3,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A029",
+        "date": null,
+        "lat": 53.4,
+        "lon": 60.9,
+        "depth": 1077.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A030",
+        "date": "1972-05-17 00:42:45",
+        "lat": 12.7,
+        "lon": -35.7,
+        "depth": 931.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A032",
+        "date": null,
+        "lat": 25.0,
+        "lon": 43.6,
+        "depth": 944.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A033",
+        "date": "1972-10-11 19:35:46",
+        "lat": 5.1,
+        "lon": 115.8,
+        "depth": 877.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A034",
+        "date": "1972-06-14 18:34:27",
+        "lat": 6.8,
+        "lon": -7.2,
+        "depth": 971.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A035",
+        "date": null,
+        "lat": 5.0,
+        "lon": 36.1,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A036",
+        "date": null,
+        "lat": 27.5,
+        "lon": -4.6,
+        "depth": 1058.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A037",
+        "date": null,
+        "lat": 22.5,
+        "lon": 29.7,
+        "depth": 1343.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A038",
+        "date": null,
+        "lat": 7.8,
+        "lon": 43.3,
+        "depth": 1031.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A039",
+        "date": null,
+        "lat": -21.9,
+        "lon": -12.7,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A040",
+        "date": "1973-06-27 23:48:35",
+        "lat": -1.3,
+        "lon": -10.3,
+        "depth": 867.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A041",
+        "date": "1972-06-08 16:16:24",
+        "lat": 13.8,
+        "lon": -29.2,
+        "depth": 847.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A042",
+        "date": "1973-05-03 01:52:35",
+        "lat": 22.2,
+        "lon": -50.7,
+        "depth": 907.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A044",
+        "date": "1974-05-19 03:09:04",
+        "lat": 50.2,
+        "lon": 60.2,
+        "depth": 908.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A049",
+        "date": null,
+        "lat": 8.6,
+        "lon": -50.8,
+        "depth": 952.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A050",
+        "date": "1973-04-30 01:05:26",
+        "lat": 8.7,
+        "lon": -53.4,
+        "depth": 828.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A051",
+        "date": "1974-02-18 08:35:27",
+        "lat": 12.3,
+        "lon": 37.7,
+        "depth": 1125.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A053",
+        "date": null,
+        "lat": -10.1,
+        "lon": -39.2,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A054",
+        "date": null,
+        "lat": 13.1,
+        "lon": -52.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A056",
+        "date": null,
+        "lat": 1.1,
+        "lon": -20.6,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A059",
+        "date": null,
+        "lat": -9.5,
+        "lon": -53.6,
+        "depth": 750.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A060",
+        "date": null,
+        "lat": 24.1,
+        "lon": -52.2,
+        "depth": 750.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A064",
+        "date": null,
+        "lat": 30.1,
+        "lon": 53.2,
+        "depth": 975.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A065",
+        "date": null,
+        "lat": 46.6,
+        "lon": 42.3,
+        "depth": 861.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A070",
+        "date": null,
+        "lat": 34.8,
+        "lon": 63.0,
+        "depth": 1014.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A071",
+        "date": null,
+        "lat": -20.9,
+        "lon": -16.8,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A073",
+        "date": null,
+        "lat": 21.1,
+        "lon": -44.0,
+        "depth": 908.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A074",
+        "date": null,
+        "lat": 34.7,
+        "lon": 60.1,
+        "depth": 1043.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A077",
+        "date": null,
+        "lat": 24.6,
+        "lon": -23.4,
+        "depth": 1419.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A082",
+        "date": null,
+        "lat": 27.5,
+        "lon": 34.3,
+        "depth": 919.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A086",
+        "date": null,
+        "lat": -40.9,
+        "lon": -40.6,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A096",
+        "date": null,
+        "lat": 6.2,
+        "lon": 11.9,
+        "depth": 794.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A097",
+        "date": "1977-05-19 06:08:21",
+        "lat": -8.4,
+        "lon": 17.9,
+        "depth": 989.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A099",
+        "date": null,
+        "lat": 10.0,
+        "lon": 22.8,
+        "depth": 989.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A100",
+        "date": null,
+        "lat": -2.0,
+        "lon": 32.2,
+        "depth": 920.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A107",
+        "date": null,
+        "lat": 41.0,
+        "lon": 53.4,
+        "depth": 893.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A114",
+        "date": null,
+        "lat": 15.5,
+        "lon": 55.6,
+        "depth": 755.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A201",
+        "date": null,
+        "lat": -40.6,
+        "lon": -3.8,
+        "depth": 862.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A202",
+        "date": null,
+        "lat": 1.0,
+        "lon": 2.8,
+        "depth": 919.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A203",
+        "date": null,
+        "lat": 0.5,
+        "lon": 47.3,
+        "depth": 1243.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A204",
+        "date": null,
+        "lat": -28.4,
+        "lon": -66.6,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A209",
+        "date": null,
+        "lat": -26.5,
+        "lon": -35.1,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A212",
+        "date": null,
+        "lat": 12.8,
+        "lon": -36.2,
+        "depth": 963.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A216",
+        "date": null,
+        "lat": -13.7,
+        "lon": -21.6,
+        "depth": 764.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A218",
+        "date": null,
+        "lat": -2.4,
+        "lon": -73.3,
+        "depth": 878.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A223",
+        "date": null,
+        "lat": 36.1,
+        "lon": -2.4,
+        "depth": 863.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A224",
+        "date": null,
+        "lat": -50.7,
+        "lon": -21.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A230",
+        "date": null,
+        "lat": 6.3,
+        "lon": 22.1,
+        "depth": 855.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A231",
+        "date": null,
+        "lat": 34.3,
+        "lon": 45.0,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A233",
+        "date": null,
+        "lat": 24.1,
+        "lon": 26.1,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A234",
+        "date": null,
+        "lat": 36.8,
+        "lon": 21.2,
+        "depth": 1006.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A236",
+        "date": null,
+        "lat": -7.8,
+        "lon": 5.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A237",
+        "date": null,
+        "lat": 12.2,
+        "lon": 3.5,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A238",
+        "date": null,
+        "lat": 26.3,
+        "lon": 20.0,
+        "depth": 831.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A239",
+        "date": null,
+        "lat": 26.7,
+        "lon": 5.2,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A241",
+        "date": null,
+        "lat": -69.4,
+        "lon": 75.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A242",
+        "date": null,
+        "lat": 58.6,
+        "lon": 54.2,
+        "depth": 1025.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A243",
+        "date": null,
+        "lat": 7.0,
+        "lon": 8.3,
+        "depth": 1019.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A244",
+        "date": null,
+        "lat": 34.6,
+        "lon": 56.1,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A245",
+        "date": null,
+        "lat": 8.6,
+        "lon": 73.0,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A246",
+        "date": null,
+        "lat": 19.4,
+        "lon": 24.3,
+        "depth": 959.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A248",
+        "date": null,
+        "lat": 5.3,
+        "lon": 3.6,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A249",
+        "date": null,
+        "lat": -3.4,
+        "lon": 12.5,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A250",
+        "date": null,
+        "lat": -3.6,
+        "lon": 21.5,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A251",
+        "date": null,
+        "lat": -46.5,
+        "lon": 38.9,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A255",
+        "date": null,
+        "lat": 1.4,
+        "lon": 15.0,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A257",
+        "date": null,
+        "lat": 35.0,
+        "lon": 19.1,
+        "depth": 1063.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A258",
+        "date": null,
+        "lat": -7.1,
+        "lon": 15.3,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A259",
+        "date": null,
+        "lat": 3.4,
+        "lon": 2.0,
+        "depth": 559.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A260",
+        "date": null,
+        "lat": -1.7,
+        "lon": 18.0,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A267",
+        "date": null,
+        "lat": -7.6,
+        "lon": 36.7,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A271",
+        "date": null,
+        "lat": 53.8,
+        "lon": 35.2,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A272",
+        "date": null,
+        "lat": -50.0,
+        "lon": 53.2,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A276",
+        "date": null,
+        "lat": -3.7,
+        "lon": -33.9,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A279",
+        "date": null,
+        "lat": 4.4,
+        "lon": -4.7,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A280",
+        "date": null,
+        "lat": 2.4,
+        "lon": 46.1,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A281",
+        "date": null,
+        "lat": -53.2,
+        "lon": -54.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A282",
+        "date": null,
+        "lat": 15.5,
+        "lon": 97.0,
+        "depth": 1141.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A283",
+        "date": null,
+        "lat": 7.1,
+        "lon": 22.5,
+        "depth": 984.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A285",
+        "date": null,
+        "lat": 42.9,
+        "lon": 110.9,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A286",
+        "date": null,
+        "lat": 54.2,
+        "lon": 56.5,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A287",
+        "date": null,
+        "lat": 24.8,
+        "lon": 35.7,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    },
+    {
+        "id": "A290",
+        "date": null,
+        "lat": 10.6,
+        "lon": 6.4,
+        "depth": 933.0,
+        "magnitude": null,
+        "type": "dm"
+    }
+]
