@@ -227,7 +227,8 @@ let series = reactive([
     camera.position.x = 15;
     scene.add(camera);
     const renderer = new THREE.WebGLRenderer();
-    document.body.appendChild(renderer.domElement);
+    // document.getElementById('moon')
+    // document.body.appendChild(renderer.domElement);
     // moonEle = renderer.domElement;
     renderer.setSize(window.innerWidth, window.innerHeight);
     let rad = 4; //半徑
@@ -259,7 +260,7 @@ let series = reactive([
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
     labelRenderer.domElement.style.position = 'absolute';
     labelRenderer.domElement.style.top = '0px';
-    document.body.appendChild(labelRenderer.domElement);
+    // document.body.appendChild(labelRenderer.domElement);
     labelRenderer.render(scene, camera);//渲染
 
     // 载入控制器
@@ -279,6 +280,13 @@ let series = reactive([
     let closeBtn;
     // mounted
     onMounted(() => {
+      document.getElementById('moon').appendChild(renderer.domElement);
+      document.getElementById('labels').appendChild(labelRenderer.domElement);
+
+    // /document.body.appendChild(labelRenderer.domElement);
+
+      // document.body.appendChild(renderer.domElement);
+
       labelDiv = markerLabel.value;
       closeBtn = clostBtn.value;
       // 關閉
