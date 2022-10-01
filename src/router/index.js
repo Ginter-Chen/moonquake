@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import  Ui  from '../components/ui/index.vue';
 import pageMain  from '../components/page-main/index.vue';
+import pageLayout  from '../components/page-layout/index.vue';
+import pageAbout  from '../components/page-about/index.vue';
+import pageRef  from '../components/page-ref/index.vue';
 
 
 
@@ -11,14 +14,31 @@ const routes = [
         component: Ui,
     },
     {
-
+        path: '/moonView',
+        name: 'moonView',
+        component: pageMain,
+    },
+    {
         path: '/',
-        redirect: '/main',
+        redirect: '/main/work',
     },
     {
         path: '/main',
         name: 'Index',
-        component: pageMain,
+        component: pageLayout,
+        children: [{
+            path: 'work',
+            name: 'work',
+            component: pageMain,
+        },{
+            path: 'ref',
+            name: 'ref',
+            component: pageRef,
+        },{
+            path: 'about',
+            name: 'about',
+            component: pageAbout,
+        }]
     },
 
 ]

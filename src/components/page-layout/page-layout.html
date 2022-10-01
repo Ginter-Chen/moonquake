@@ -1,0 +1,48 @@
+
+<section class="page-layout">
+  <div id="layout-main">
+    <a-layout style="min-height: 100vh">
+      <a-layout-sider v-model:collapsed="collapsed" collapsible>
+        <div class="top-block">
+          <p>MoonQuake</p>
+        </div>
+        <a-menu class="menu-block" v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+          <a-menu-item class="menu-itm" @click="onClickMenu('work')" key="1">
+            <div class="icon-block">
+              <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_work.svg')" alt="">
+              <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_work-active.svg')" alt="">
+            </div>
+            <span class="menu-txt">Work</span>
+            <div class="bg-hover"></div>
+          </a-menu-item>
+          <a-menu-item class="menu-itm" @click="onClickMenu('about')" key="2">
+            <div class="icon-block">
+              <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_about.svg')" alt="">
+              <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_about-active.svg')" alt="">
+            </div>
+            <span class="menu-txt">About</span>
+            <div class="bg-hover"></div>
+          </a-menu-item>
+          <a-menu-item class="menu-itm" @click="onClickMenu('ref')" key="3">
+            <div class="icon-block">
+            <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_reference.svg')" alt="">
+            <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_reference-active.svg')" alt="">
+            </div>
+            <span class="menu-txt">Reference</span>
+            <div class="bg-hover"></div>
+          </a-menu-item>
+        </a-menu>
+      </a-layout-sider>
+      <a-layout>
+        <a-layout-content class="layout-main-content">
+            <router-view></router-view>
+        </a-layout-content>
+        <a-layout-footer style="text-align: center">
+          MooooooN ©2022 Created by MooooooN
+        </a-layout-footer>
+      </a-layout>
+    </a-layout>
+
+  </div>
+</section>
+

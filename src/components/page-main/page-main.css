@@ -5,12 +5,14 @@
 }
 .mode0{
   position: absolute;
-  bottom: 0px;
+  top: 0px;
   z-index: 10;
 }
 .type{
   position: absolute;
   z-index: 10;
+  top: 0px;
+  left: 10%;
 }
 #info{
     position: absolute;
