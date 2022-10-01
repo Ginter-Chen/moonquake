@@ -1,7 +1,11 @@
+
 .page-main {
     padding: 0;
     margin: 0 ;
     position: relative;
+    width: calc(100vw - 200px);
+    height: 100vh;
+    overflow: hidden;
 }
 .typeChange{
   position: absolute;
@@ -11,6 +15,7 @@
 .eventMode{
   position: absolute;
   z-index: 9;
+  top:50px;
   width: 300px;
   height: 300px;
   color: white;
@@ -44,8 +49,9 @@
     background: rgba(0, 0, 0, 0.75);
     border: 2px solid var(--baseColor);
     border-radius: 5px;
-    margin-top: -25px;
-    margin-left: 120px;
+    margin-top: -60px;
+    /* margin-left: 120px; */
+    margin-left: 30px;
     overflow: hidden;
     padding: 0px;
   }
@@ -70,4 +76,6 @@
     background: transparent;
     color: white;
   }
-
+.ui-time-slider{
+  width: calc(100vw - 200px);
+}
