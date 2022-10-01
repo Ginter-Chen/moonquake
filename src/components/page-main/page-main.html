@@ -1,11 +1,7 @@
 
 <section class="page-main">
   <div id="container"></div>
-  <div class="mode0" v-if="state.mode == 0">
-    <button class="test" @click="setTime('1970-04-15 02:09:41','1971-02-04 07:40:55')">test</button>
-    <button class="test2" @click="setTime('1969-01-01 00:00:00','1970-01-01 00:00:00')">test2</button>
-  </div>
-  <select class="type" @change="onChange($event)">
+  <select class="typeChange" @change="onChange($event)">
     <option value="0">有震央</option>
     <option value="1">無震央</option>
   </select>
@@ -17,6 +13,13 @@
     <div class="text" id="magnitude" ref="magnitudeRef">{{info.mag}}</div>
     <div class="text" id="depth" ref="depthRef">{{info.depth}}</div>
     <div class="text" id="coordinates" ref="coordinatesRef">{{info.coord}}</div>
+  </div>
+  <div class="eventMode" v-if="state.mode == 1">
+    <div class="info">
+      <div v-if="state.startTime!=''" class="startTime">StartTime:{{state.startTime}}</div>
+      <div v-if="state.type!=''" class="type">Type:{{state.type}}</div>
+      <div v-if="state.duration!=''" class="duration">Duration:{{state.duration}}</div>
+    </div>
   </div>
   <div class="timeblock">
     <!-- timeline -->

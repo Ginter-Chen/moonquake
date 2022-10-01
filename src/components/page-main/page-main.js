@@ -4,6 +4,7 @@ import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 // import VueTimeline from "vue-timeline-component"
 import moment from 'moment';
 import VueApexCharts from "vue3-apexcharts";
@@ -36,6 +37,9 @@ export default {
     const coordinatesRef = ref(null);
     let state = reactive({
       mode:0,
+      type:"",
+      startTime:"",
+      duration:"",
     })
 
     let info = reactive([{
@@ -215,6 +219,7 @@ let series = reactive([
      */
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+    camera.position.x = 15;
     const renderer = new THREE.WebGLRenderer();
     document.body.appendChild(renderer.domElement);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -232,24 +237,19 @@ let series = reactive([
     scene.add(Moon);
     //Apollo
     var _station_data = [];
-    const Apollo_mesh = new THREE.BoxGeometry( .3, .3, .3 );
-    const Apollo_material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    const Apollo_material = new THREE.MeshBasicMaterial( {color: 0xeeeeee} );
+    var Apollo_mesh = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
+    var Apollo_gltf;
+    var loader = new GLTFLoader();
+      loader.load("model/Apollo.gltf", function (gltf) {
+        Apollo_gltf = gltf.scene;
+      });
     let Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
+    // let Apollo;
     scene.add(Apollo);
     //燈光
-    const light = new THREE.DirectionalLight(0xffffff, 1)
-    light.position.set(5, 2, 5)
+    const light = new THREE.DirectionalLight(0xffffff, 1.2)
     scene.add(light)
-    const light1 = new THREE.DirectionalLight(0xffffff, 1)
-    light1.position.set(-5, 2, 5)
-    scene.add(light1)
-    const light2 = new THREE.DirectionalLight(0xffffff, 1)
-    light2.position.set(-5, -2, -5)
-    scene.add(light2)
-    const light3 = new THREE.DirectionalLight(0xffffff, 1)
-    light3.position.set(5, -2, -5)
-    scene.add(light3)
-    camera.position.x = 15;
 
     // label
     let labelRenderer = new CSS2DRenderer();
@@ -421,6 +421,7 @@ let series = reactive([
       globalUniforms.time.value = t;
       label.userData.trackVisibility();
       controls.update();
+      light.position.copy(camera.position);
       renderer.render(scene, camera);
       labelRenderer.render(scene, camera);
     };
@@ -465,6 +466,8 @@ let series = reactive([
       scene.remove(markers);
       scene.remove(Apollo);
       _station_data = [];
+      state.type="";
+      state.startTime="";
       if(value!=undefined){
         var _event = eventData[value];
         if(_event["A11"]){
@@ -482,34 +485,62 @@ let series = reactive([
         if(_event["A16"]){
           _station_data.push(stationData[4]);
         }
+        if(_event.type == "A"){
+          state.type="Deep moonquake with assigned number";
+        }else if(_event.type == "T"){
+          state.type="Suspected long-period thermal moonquake with assigned number";
+        }else if(_event.type == "M"){
+          state.type="Unclassified deep moonquake";
+        }else if(_event.type == "C"){
+          state.type="Meteoroid impact";
+        }else if(_event.type == "H"){
+          state.type="Shallow moonquake";
+        }else if(_event.type == "Z"){
+          state.type="Mostly short-period event";
+        }else if(_event.type == "L"){
+          state.type="LM impact";
+        }else if(_event.type == "S"){
+          state.type="S-IVB impact";
+        }else if(_event.type == "X"){
+          state.type="Special type";
+        }
+        state.startTime=_event.start;
+        var diff =new Date(_event.end)-new Date(_event.start);
+        state.duration = diff/60000+" Minute";
       }else{
         for(let _s = 0;_s<stationData.length;_s++){
           _station_data.push(stationData[_s]);
         }
       }
-      Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
+      // Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
       let dummy = new THREE.Object3D();
-      let phase = [];
-      for (let i = 0; i < _station_data.length; i++) {
-          var _p = calcPosFromLatLonRad(_station_data[i].lon, _station_data[i].lat, rad);
-          dummy.position.set(_p[0], _p[1], _p[2]);
-          dummy.lookAt(dummy.position.clone().setLength(rad + 1));
-          dummy.updateMatrix();
-          Apollo.setMatrixAt(i, dummy.matrix);
-          phase.push(Math.random());
-      }
-      Apollo_mesh.setAttribute(
-        "phase",
-        new THREE.InstancedBufferAttribute(new Float32Array(phase), 1)
-      );
-      scene.add(Apollo);
+      var loader = new GLTFLoader();
+      loader.load("/model/Apollo.gltf", function (gltf) {
+        gltf.scene.traverse(function(child) {
+          if (child.isMesh) {
+            Apollo = new THREE.InstancedMesh(child.geometry, Apollo_material, _station_data.length);
+            for (let i = 0; i < _station_data.length; i++) {
+                var _p = calcPosFromLatLonRad(_station_data[i].lon, _station_data[i].lat, rad);
+                dummy.position.set(_p[0], _p[1], _p[2]);
+                dummy.scale.set(.01,.01,.01);
+                dummy.lookAt(dummy.position.clone().setLength(rad + 1));
+                dummy.rotation.y-=Math.PI/2;
+                dummy.updateMatrix();
+                Apollo.setMatrixAt(i, dummy.matrix);
+            }
+            // Apollo.castShadow = true; //default is false
+            // Apollo.receiveShadow = false; //default
+            scene.add(Apollo);
+          }
+        })
+      });
     }
     const onChange = (event) => {
       state.mode = event.target.value;
       if(state.mode==0){
         setTime();
       }else if (state.mode == 1){
-        add_station();
+        add_station(0);
       }
     }
 

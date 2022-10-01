@@ -3,14 +3,22 @@
     margin: 0 ;
     position: relative;
 }
-.mode0{
+.typeChange{
   position: absolute;
-  bottom: 0px;
   z-index: 10;
 }
-.type{
+.eventMode{
   position: absolute;
-  z-index: 10;
+  z-index: 9;
+  width: 300px;
+  height: 300px;
+  color: white;
+}
+.eventMode .info{
+  margin-top: 50px;
+  width: 300px;
+  display: inline-block;
+  float: right;
 }
 #info{
     position: absolute;
