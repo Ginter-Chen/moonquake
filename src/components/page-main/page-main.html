@@ -19,8 +19,8 @@
   <div class="eventMode" v-if="state.mode == 1">
     <div class="info">
       <div v-if="state.startTime!=''" class="startTime">StartTime:{{state.startTime}}</div>
-      <div v-if="state.type!=''" class="type">Type:{{state.type}}</div>
       <div v-if="state.duration!=''" class="duration">Duration:{{state.duration}}</div>
+      <div v-if="state.type!=''" class="type">Type:{{state.type}}</div>
     </div>
   </div>
   <div v-if="state.mode == 0" class="timeblock">

@@ -20,11 +20,11 @@ export default {
     },
     maxT: {
       type: String,
-      default: '1969-07-29 00:00:00',
+      default: '1969-01-01 00:00:00',
     },
     maxE:  {
       type: String,
-      default: '1972-09-30 00:00:00',
+      default: '1977-12-31 23:59:59',
     }
   },
   setup(props, {emit}){
