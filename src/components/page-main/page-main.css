@@ -79,3 +79,7 @@
 .ui-time-slider{
   width: calc(100vw - 200px);
 }
+
+.page-main .timeblock{
+  position: relative;
+}

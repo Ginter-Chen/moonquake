@@ -1,4 +1,4 @@
-import { ref, onMounted, reactive, watch } from 'vue';
+import { ref, onMounted, reactive, getCurrentInstance } from 'vue';
 import * as THREE from "three";
 
 
@@ -7,7 +7,6 @@ import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRe
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import VueTimeline from "vue-timeline-component"
 import moment from 'moment';
-import VueApexCharts from "vue3-apexcharts";
 import UiTimeline from '../ui-timeline/index.vue';
 import UiTimeSlider from '../ui-time-slider/index.vue';
 
@@ -32,6 +31,10 @@ export default {
     UiTimeline,
   },
   setup() {
+    const { proxy } = getCurrentInstance();
+    // timeline event  (mode =1 的事件資料)
+    let timeEventDatas = reactive([]);
+    let text =reactive(['ddd','aaa']);
 
     const markerLabel = ref(null)
     const clostBtn = ref(null);
@@ -42,7 +45,7 @@ export default {
     const depthRef = ref(null);
     const coordinatesRef = ref(null);
     let state = reactive({
-      mode: 0,
+      mode: 1,
       type: "",
       startTime: "",
       duration: "",
@@ -278,8 +281,67 @@ export default {
     var _moonquakeData = [];// label 
     let labelDiv;
     let closeBtn;
+
+    text = [... ['xxx','000']];
+
+    
+    // 無震央 event 處理
+    // 轉換event的typp
+    const converEventType = (type) => {
+      switch(type){
+        case 'A':
+          return "Deep moonquake with assigned number";
+        case 'T':
+          return "Suspected long-period thermal moonquake with assigned number";
+        case 'M':
+        return  "Unclassified deep moonquake";
+        case 'C':
+          return "Meteoroid impact";
+        case 'H':
+          return "Shallow moonquake";
+        case 'Z':
+          return "Mostly short-period event";
+        case 'L':
+          return"LM impact";
+        case 'S':
+          return "S-IVB impact";
+        case 'X':
+          return "Special type";
+        default:
+          return "--";
+      }
+    }//end: converEventType
+    
+    let _handleEventDatas = ()  => {
+      let _data = eventData;
+      let _handleData = [];
+      _data.forEach((item, index) => {
+        if(index <= 10){
+          _handleData.push({
+          name: item.id,
+          data:[{
+            x: 'event',
+            y:[
+              Date.parse(item.start),
+              Date.parse(item.end),
+            ]
+          }]
+        })// push
+        }//end: if
+      })
+      return _handleData;
+
+    }//end: handleEventDatas
+
+    timeEventDatas = _handleEventDatas();
     // mounted
     onMounted(() => {
+
+     
+     
+      state.mode = 0;
+      console.log('onMounted timeEventDatas',timeEventDatas)
+
       document.getElementById('moon').appendChild(renderer.domElement);
       document.getElementById('labels').appendChild(labelRenderer.domElement);
 
@@ -498,25 +560,7 @@ export default {
         if (_event["A16"]) {
           _station_data.push(stationData[4]);
         }
-        if (_event.type == "A") {
-          state.type = "Deep moonquake with assigned number";
-        } else if (_event.type == "T") {
-          state.type = "Suspected long-period thermal moonquake with assigned number";
-        } else if (_event.type == "M") {
-          state.type = "Unclassified deep moonquake";
-        } else if (_event.type == "C") {
-          state.type = "Meteoroid impact";
-        } else if (_event.type == "H") {
-          state.type = "Shallow moonquake";
-        } else if (_event.type == "Z") {
-          state.type = "Mostly short-period event";
-        } else if (_event.type == "L") {
-          state.type = "LM impact";
-        } else if (_event.type == "S") {
-          state.type = "S-IVB impact";
-        } else if (_event.type == "X") {
-          state.type = "Special type";
-        }
+        state.type = converEventType(_event.type);
         state.startTime = _event.start;
         var diff = new Date(_event.end) - new Date(_event.start);
         state.duration = diff / 60000 + " Minute";
@@ -549,12 +593,31 @@ export default {
         })
       });
     }
+    
+
+   
+
+    // watch(
+    //   () => (state.mode),
+    //   (val) => {
+    //     console.log('state mode watch', val);
+    //     if(val === 1){
+    //       _handleEventDatas();
+    //     }
+    //   },
+    //   { deep: true },
+    // ) //end: watch
+
+
+
     const onChange = (event) => {
       state.mode = event.target.value;
       if (state.mode == 0) {
         setTime();
       } else if (state.mode == 1) {
         add_station(0);
+        // 處理Event資料
+    
       }
     }
 
@@ -566,6 +629,11 @@ export default {
       // console.log('updateDate',val);
       setTime(val.start, val.end);
     }//end: updateDate
+
+
+    
+
+    
 
 
 
@@ -588,12 +656,12 @@ export default {
       updateDate,
       dateStart,
       dateEnd,
-
-
+      add_station,
+      timeEventDatas,
+      text,
     } //end: return;
 
   } // end: setup
-
 
 }// end: export 
 

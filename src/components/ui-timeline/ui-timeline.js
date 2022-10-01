@@ -7,32 +7,100 @@ export default {
   components: {
     VueApexCharts
   },
-  props: [],
-  data () {
-    return {
-
-    }
+  props: {
+    series:{
+      type: Object,
+      default() {
+        return [{
+          name: '1',
+          data: [
+            {
+              x: 'Event',
+              y: [
+                Date.parse('1969-07-27 23:48:00'),
+                Date.parse('1969-07-29 00:40:00')
+              ]
+            },
+          ]
+        },
+        {
+          name: '2',
+          data: [
+            {
+              x: 'Event',
+              y: [
+                Date.parse('1969-07-27 23:48:00'),
+                Date.parse('1969-07-31 00:40:00')
+              ]
+            },
+          ]
+        },]
+      },
+    },
   },
-  setup(){
+  setup(props, {emit}){
     let chartOptions = reactive({
       chart: {
-        height: 350,
-        type: 'rangeBar'
+        height: 200,
+        type: 'rangeBar',
+        selection: {
+          enabled: true,
+          type: 'x',
+          fill: {
+            color: '#24292e',
+            opacity: 0.1
+          },
+          stroke: {
+            width: 1,
+            dashArray: 3,
+            color: '#24292e',
+            opacity: 0.4
+          },
+        },
+        stroke: {
+          width: 10,
+          dashArray: 3,
+          color: '#24292e',
+          opacity: 0.4
+        },
+
+        markers: {
+          size: 10,
+          colors: 'red',
+          strokeColors: '#fff',
+          strokeWidth: 2,
+          strokeOpacity: 0.9,
+          strokeDashArray: 0,
+          fillOpacity: 1,
+          discrete: [],
+          shape: "circle",
+          radius: 2,
+          offsetX: 0,
+          offsetY: 0,
+          onClick: undefined,
+          onDblClick: undefined,
+          showNullDataPoints: true,
+          hover: {
+            size: undefined,
+            sizeOffset: 3
+          }
       },
+      },
+     
       plotOptions: {
         bar: {
           horizontal: true
         }
       },
-      dataLabels: {
-        enabled: true,
-        formatter: function(val) {
-          var a = moment(val[0])
-          var b = moment(val[1])
-          var diff = b.diff(a, 'days')
-          return diff + (diff > 1 ? ' days' : ' day')
-        }
-      },
+      // dataLabels: {
+      //   enabled: true,
+      //   formatter: function(val) {
+      //     var a = moment(val[0])
+      //     var b = moment(val[1])
+      //     var diff = b.diff(a, 'days')
+      //     return diff + (diff > 1 ? ' days' : ' day')
+      //   }
+      // },
       fill: {
         type: 'gradient',
         gradient: {
@@ -50,66 +118,50 @@ export default {
         type: 'datetime'
       },
       legend: {
-        position: 'top'
+        position: 'top',
+        show: false,
+      },
+      zoom: {
+        enabled: true,
+        type: 'x',  
+        autoScaleYaxis: false, 
       }
     });
-    let series = reactive([
-      {
-        name: 'Bob',
-        data: [
-          {
-            x: 'Design',
-            y: [
-              new Date('2019-03-05').getTime(),
-              new Date('2019-03-08').getTime()
-            ]
-          },
-          {
-            x: 'Code',
-            y: [
-              new Date('2019-03-08').getTime(),
-              new Date('2019-03-11').getTime()
-            ]
-          },
-          {
-            x: 'Test',
-            y: [
-              new Date('2019-03-11').getTime(),
-              new Date('2019-03-16').getTime()
-            ]
-          }
-        ]
-      },
-      {
-        name: 'Joe',
-        data: [
-          {
-            x: 'Design',
-            y: [
-              new Date('2019-03-02').getTime(),
-              new Date('2019-03-05').getTime()
-            ]
-          },
-          {
-            x: 'Code',
-            y: [
-              new Date('2019-03-06').getTime(),
-              new Date('2019-03-09').getTime()
-            ]
-          },
-          {
-            x: 'Test',
-            y: [
-              new Date('2019-03-10').getTime(),
-              new Date('2019-03-19').getTime()
-            ]
-          }
-        ]
-      }
-    ])
+    
+    let clickHandler = (event, chartContext, config) => {
+      let _index = config.seriesIndex;
+      emit('onClick', _index)
+    }
+    // let series = reactive([
+    //   {
+    //     name: '1',
+    //     data: [
+    //       {
+    //         x: 'Event',
+    //         y: [
+    //           Date.parse('1969-07-27 23:48:00'),
+    //           Date.parse('1969-07-29 00:40:00')
+    //         ]
+    //       },
+    //     ]
+    //   },
+    //   {
+    //     name: '2',
+    //     data: [
+    //       {
+    //         x: 'Event',
+    //         y: [
+    //           Date.parse('1969-07-28 11:46:00'),
+    //           Date.parse('1969-07-28 12:15:00')
+    //         ]
+    //       },
+    //     ]
+    //   }
+    // ])
     return{
       chartOptions,
-      series,
+      // series,
+      clickHandler,
 
     }
   }
