@@ -2,8 +2,39 @@
     position: fixed;
     z-index: 10;
     bottom: 0;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
     width: 100vw;
     box-sizing: border-box;
     padding: 20px;
+}
+.ui-time-slider .label-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-time-slider .start-block{
+    display: inline-block;
+    width: 93px;
+    font-size: 14px;
+}
+.ui-time-slider .start-block .style--start{
+    display: inline-block;
+    text-align: left;
+}
+.info-block{
+    align-items: center;
+}
+.info-text + .info-text{
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.ui-time-slider .start-block .style--end{
+    display: inline-block;
+    text-align: right;
+}
+
+.ui-time-slider .info-block{
+    display: flex;
 }

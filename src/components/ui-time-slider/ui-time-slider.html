@@ -1,9 +1,14 @@
 
 <div class="ui-time-slider">
   <div class="info-block">
-    <p class="info-text">starttime: {{timeDisplay.start}}</p>
-    <p class="info-text">endTime: {{timeDisplay.end}}</p>
+    <p class="info-text">Range: {{timeDisplay.start}} </p>
+    <div class="info-text"> ~ </div>
+    <p class="info-text">{{timeDisplay.end}}</p>
   </div>
   <Slider v-model="value" :tooltips="false"  @update="onUpdateSlider" :format="datesFormat" :min="startTime" :max="endTime" />
+  <div class="label-block">
+    <div class="start-block style--start">{{maxT}}</div>
+    <div class="start-block style--end">{{maxE}}</div>
+  </div>
 </div>
 
