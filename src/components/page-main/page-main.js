@@ -518,7 +518,7 @@ let series = reactive([
       // Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
       let dummy = new THREE.Object3D();
       var loader = new GLTFLoader();
-      loader.load("/model/Apollo.gltf", function (gltf) {
+      loader.load("/model/Apollo2.gltf", function (gltf) {
         gltf.scene.traverse(function(child) {
           if (child.isMesh) {
             child.castShadow = true;
@@ -529,7 +529,6 @@ let series = reactive([
                 dummy.position.set(_p[0], _p[1], _p[2]);
                 dummy.scale.set(.01,.01,.01);
                 dummy.lookAt(dummy.position.clone().setLength(rad + 1));
-                // dummy.rotation.x-=Math.PI/2;
                 dummy.updateMatrix();
                 Apollo.setMatrixAt(i, dummy.matrix);
             }
