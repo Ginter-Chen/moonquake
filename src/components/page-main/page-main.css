@@ -3,13 +3,13 @@
     margin: 0 ;
     position: relative;
 }
-.test{
+.mode0{
   position: absolute;
+  bottom: 0px;
   z-index: 10;
 }
-.test2{
+.type{
   position: absolute;
-  left:200px;
   z-index: 10;
 }
 #info{

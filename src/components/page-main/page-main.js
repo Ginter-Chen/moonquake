@@ -1,4 +1,4 @@
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive,watch } from 'vue';
 import * as THREE from "three";
 
 
@@ -17,7 +17,10 @@ import UiTimeSlider from '../ui-time-slider/index.vue';
 * lat:维度
 * magnitude:強度
 */
-import moonQuakeData from '../../assets/json/all_data.json';
+// import moonQuakeData from '../../assets/json/all_data.json';
+import moonQuakeData from '../../assets/json/all_location.json';
+import stationData from '../../assets/json/all_station.json';
+import eventData from '../../assets/json/all_event.json';
 import { _ } from 'core-js';
 
 export default {
@@ -36,8 +39,9 @@ export default {
     const magnitudeRef = ref(null);
     const depthRef = ref(null);
     const coordinatesRef = ref(null);
-    let moonEle = reactive(null);
-
+    let state = reactive({
+      mode:0,
+    })
 
     let info = reactive([{
       id: 0,
@@ -232,6 +236,13 @@ let series = reactive([
 
     const Moon = new THREE.Mesh(geometry, material);
     scene.add(Moon);
+    //Apollo
+    var _station_data = [];
+    const Apollo_mesh = new THREE.BoxGeometry( .3, .3, .3 );
+    const Apollo_material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    let Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
+    scene.add(Apollo);
+    //燈光
     const light = new THREE.DirectionalLight(0xffffff, 1)
     light.position.set(5, 2, 5)
     scene.add(light)
@@ -245,7 +256,6 @@ let series = reactive([
     light3.position.set(5, -2, -5)
     scene.add(light3)
     camera.position.x = 15;
-
 
     // label
     let labelRenderer = new CSS2DRenderer();
@@ -261,8 +271,8 @@ let series = reactive([
     controls.minDistance = 2;
     controls.maxDistance = 15;
     controls.enableDamping = false;
-    controls.autoRotate = false;  // 自轉開關
-    controls.autoRotateSpeed *= 0.25;
+    controls.autoRotate = true;  // 自轉開關
+    controls.autoRotateSpeed *= 0.1;
 
     let gMarker
     let mMarker
@@ -349,32 +359,6 @@ let series = reactive([
       // let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
       markers = new THREE.InstancedMesh(gMarker, mMarker, moonQuakeData.length);
       setTime();
-      // let dummy = new THREE.Object3D();
-      // // dummy.scale.set(.2,.2,.2);
-      // let phase = [];
-      // for (let i = 0; i < moonQuakeData.length; i++) {
-      //   // dummy.position.randomDirection().setLength(rad + 0.001);
-      //   var _p = calcPosFromLatLonRad(moonQuakeData[i].lon, moonQuakeData[i].lat, rad);
-      //   dummy.position.set(_p[0], _p[1], _p[2]);
-      //   dummy.lookAt(dummy.position.clone().setLength(rad + 1));
-      //   dummy.updateMatrix();
-      //   markers.setMatrixAt(i, dummy.matrix);
-      //   phase.push(Math.random());
-
-
-      //   moonQuakeData[i]["crd"] = dummy.position.clone();
-      //   // markerInfo.push({
-      //   //   id: i + 1,
-      //   //   mag: THREE.MathUtils.randInt(1, 10),
-      //   //   crd: dummy.position.clone()
-      //   // });
-      // }
-      // // info = [...markerInfo];
-      // gMarker.setAttribute(
-      //   "phase",
-      //   new THREE.InstancedBufferAttribute(new Float32Array(phase), 1)
-      // );
-      // scene.add(markers);
 
 
       // end of marker
@@ -397,27 +381,40 @@ let series = reactive([
         pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
         pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
-        intersections = raycaster.intersectObject(markers).filter(m => {
-          return (m.uv.subScalar(0.5).length() * 2) < 0.25; // check, if we're in the central circle only
-        });
-        if (intersections.length > 0) {
-          let iid = intersections[0].instanceId;
-          divID.innerHTML = `ID: <b>${_moonquakeData[iid].id}</b>`;
-          divType.innerHTML = `Type: <b>${_moonquakeData[iid].type}</b>`;
-          divDate.innerHTML = `Time: <b>` + (_moonquakeData[iid].date == null ? `Unknow` : `${_moonquakeData[iid].date}</b>`);
-          divMagnitude.innerHTML = `Magnitude: <b>` + (_moonquakeData[iid].magnitude == null ? `Unknow` : `${_moonquakeData[iid].magnitude}</b>`);
-          divDepth.innerHTML = `depth: <b>` + (_moonquakeData[iid].depth == null ? `Unknow` : `${_moonquakeData[iid].depth} KM</b>`);
-          divCrd.innerHTML = `Lon: <b>${_moonquakeData[iid].lon}</b>; Lat: <b>${_moonquakeData[iid].lat}</b>`;
-          label.position.copy(_moonquakeData[iid].crd);
-          label.element.animate([
-            { width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px" },
-            { width: "230px", height: "96px", marginTop: "-25px", maginLeft: "120px" }
-          ], {
-            duration: 250
+        if(state.mode==0){
+          intersections = raycaster.intersectObject(markers).filter(m => {
+            return (m.uv.subScalar(0.5).length() * 2) < 0.25; // check, if we're in the central circle only
           });
-          label.element.classList.remove("hidden");
-        }
+          if (intersections.length > 0) {
+            let iid = intersections[0].instanceId;
+            var typeName = "";
+            if(_moonquakeData[iid].type == "ai"){
+              typeName = "AI"
+            }else if(_moonquakeData[iid].type == "m"){
+              typeName = "Thermal Moonquake"
+            }else if(_moonquakeData[iid].type == "dm"){
+              typeName = "Deep Moonquake"
+            }else if(_moonquakeData[iid].type == "sm"){
+              typeName = "Shallow Moonquake"
+            }
+            divID.innerHTML = `ID: <b>${_moonquakeData[iid].id}</b>`;
+            divType.innerHTML = `Type: <b>${typeName}</b>`;
+            divDate.innerHTML = `Time: <b>` + (_moonquakeData[iid].date == null ? `Unknow` : `${_moonquakeData[iid].date}</b>`);
+            divMagnitude.innerHTML = `Magnitude: <b>` + (_moonquakeData[iid].magnitude == null ? `Unknow` : `${_moonquakeData[iid].magnitude}</b>`);
+            divDepth.innerHTML = `depth: <b>` + (_moonquakeData[iid].depth == null ? `Unknow` : `${_moonquakeData[iid].depth} KM</b>`);
+            divCrd.innerHTML = `Lon: <b>${_moonquakeData[iid].lon}</b>; Lat: <b>${_moonquakeData[iid].lat}</b>`;
+            label.position.copy(_moonquakeData[iid].crd);
+            label.element.animate([
+              { width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px" },
+              { width: "230px", height: "96px", marginTop: "-25px", maginLeft: "120px" }
+            ], {
+              duration: 250
+            });
+            label.element.classList.remove("hidden");
+          }
+        }else if (state.mode){
 
+        }
       })
       // </Interaction>
       animate();
@@ -434,8 +431,9 @@ let series = reactive([
       labelRenderer.render(scene, camera);
     };
     const setTime = (start,end) => {
+      scene.remove(markers);
+      scene.remove(Apollo);
       if(start!=undefined&&end!=undefined){
-        scene.remove(markers);
         start = Date.parse(start);
         end = Date.parse(end);
         _moonquakeData = [];
@@ -468,6 +466,57 @@ let series = reactive([
         new THREE.InstancedBufferAttribute(new Float32Array(phase), 1)
       );
       scene.add(markers);
+    };
+    const add_station = (value) => {
+      scene.remove(markers);
+      scene.remove(Apollo);
+      _station_data = [];
+      if(value!=undefined){
+        var _event = eventData[value];
+        if(_event["A11"]){
+          _station_data.push(stationData[0]);
+        }
+        if(_event["A12"]){
+          _station_data.push(stationData[1]);
+        }
+        if(_event["A14"]){
+          _station_data.push(stationData[2]);
+        }
+        if(_event["A15"]){
+          _station_data.push(stationData[3]);
+        }
+        if(_event["A16"]){
+          _station_data.push(stationData[4]);
+        }
+      }else{
+        for(let _s = 0;_s<stationData.length;_s++){
+          _station_data.push(stationData[_s]);
+        }
+      }
+      Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
+      let dummy = new THREE.Object3D();
+      let phase = [];
+      for (let i = 0; i < _station_data.length; i++) {
+          var _p = calcPosFromLatLonRad(_station_data[i].lon, _station_data[i].lat, rad);
+          dummy.position.set(_p[0], _p[1], _p[2]);
+          dummy.lookAt(dummy.position.clone().setLength(rad + 1));
+          dummy.updateMatrix();
+          Apollo.setMatrixAt(i, dummy.matrix);
+          phase.push(Math.random());
+      }
+      Apollo_mesh.setAttribute(
+        "phase",
+        new THREE.InstancedBufferAttribute(new Float32Array(phase), 1)
+      );
+      scene.add(Apollo);
+    }
+    const onChange = (event) => {
+      state.mode = event.target.value;
+      if(state.mode==0){
+        setTime();
+      }else if (state.mode == 1){
+        add_station();
+      }
     }
 
     // updateDate
@@ -490,6 +539,8 @@ let series = reactive([
       coordinatesRef,
       info,
       setTime,
+      onChange,
+      state,
       event,
       chartOptions,
       series,
