@@ -519,14 +519,16 @@ let series = reactive([
       }
     }
 
-    // updateDate
+    // time slider 更新時間
+    let dateStart = ref('1970-04-15 02:09:41');
+    let dateEnd = ref('1971-02-04 07:40:55');
+
     let updateDate = (val) => {
       console.log('updateDate',val);
 
     }//end: updateDate
 
-    let dateStart = ref('1970-04-15 02:09:41');
-    let dateEnd = ref('1971-02-04 07:40:55');
+    
 
     return {
       markerLabel,
