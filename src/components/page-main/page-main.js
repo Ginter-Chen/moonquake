@@ -544,7 +544,6 @@ let series = reactive([
       event,
       chartOptions,
       series,
-      moonEle,
       updateDate,
       dateStart,
       dateEnd,
