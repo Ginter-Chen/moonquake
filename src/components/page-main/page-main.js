@@ -8,6 +8,8 @@ import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRe
 import moment from 'moment';
 import VueApexCharts from "vue3-apexcharts";
 import UiTimeline from '../ui-timeline/index.vue';
+import UiTimeSlider from '../ui-time-slider/index.vue';
+
 
 /**
 * 經緯度
@@ -20,7 +22,10 @@ import { _ } from 'core-js';
 
 export default {
   name: 'page-main',
-  
+  components:{
+    UiTimeSlider,
+    UiTimeline,
+  },
   setup(){
 
     const markerLabel = ref(null)
@@ -31,6 +36,7 @@ export default {
     const magnitudeRef = ref(null);
     const depthRef = ref(null);
     const coordinatesRef = ref(null);
+    let moonEle = reactive(null);
 
 
     let info = reactive([{
@@ -212,6 +218,7 @@ let series = reactive([
 
     const renderer = new THREE.WebGLRenderer();
     document.body.appendChild(renderer.domElement);
+    // moonEle = renderer.domElement;
     renderer.setSize(window.innerWidth, window.innerHeight);
     let rad = 4; //半徑
     // 建立一個半徑為 1 的
@@ -463,6 +470,15 @@ let series = reactive([
       scene.add(markers);
     }
 
+    // updateDate
+    let updateDate = (val) => {
+      console.log('updateDate',val);
+
+    }//end: updateDate
+
+    let dateStart = ref('1970-04-15 02:09:41');
+    let dateEnd = ref('1971-02-04 07:40:55');
+
     return {
       markerLabel,
       clostBtn,
@@ -477,6 +493,11 @@ let series = reactive([
       event,
       chartOptions,
       series,
+      moonEle,
+      updateDate,
+      dateStart,
+      dateEnd,
+
 
     } //end: return;
 
