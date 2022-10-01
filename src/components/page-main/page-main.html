@@ -21,7 +21,7 @@
       <div v-if="state.duration!=''" class="duration">Duration:{{state.duration}}</div>
     </div>
   </div>
-  <div class="timeblock">
+  <div v-if="state.mode == 0" class="timeblock">
     <!-- timeline -->
     <!-- <ui-timeline></ui-timeline> -->
     <ui-time-slider :start="dateStart" :end="dateEnd" @updateTime="updateDate($event)" ></ui-time-slider>

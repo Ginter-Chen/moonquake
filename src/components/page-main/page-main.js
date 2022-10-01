@@ -23,6 +23,7 @@ import moonQuakeData from '../../assets/json/all_location.json';
 import stationData from '../../assets/json/all_station.json';
 import eventData from '../../assets/json/all_event.json';
 import { _ } from 'core-js';
+import { SpotLightHelper } from 'three';
 
 export default {
   name: 'page-main',
@@ -223,8 +224,8 @@ let series = reactive([
       这里采用的是透视相机。视角越大，看到的场景越大，那么中间的物体相对于整个场景来说，就越小了
      */
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-
     camera.position.x = 15;
+    scene.add(camera);
     const renderer = new THREE.WebGLRenderer();
     document.body.appendChild(renderer.domElement);
     // moonEle = renderer.domElement;
@@ -245,18 +246,14 @@ let series = reactive([
     var _station_data = [];
     const Apollo_material = new THREE.MeshBasicMaterial( {color: 0xeeeeee} );
     var Apollo_mesh = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
-    var Apollo_gltf;
-    var loader = new GLTFLoader();
-      loader.load("model/Apollo.gltf", function (gltf) {
-        Apollo_gltf = gltf.scene;
-      });
     let Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
     // let Apollo;
     scene.add(Apollo);
     //燈光
-    const light = new THREE.DirectionalLight(0xffffff, 1.2)
-    scene.add(light)
-
+    const light = new THREE.DirectionalLight(0xffffff, 1.8)
+    light.position.set(-15,15,0);
+    camera.add( light);
+    // scene.add(light)
     // label
     let labelRenderer = new CSS2DRenderer();
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -427,7 +424,7 @@ let series = reactive([
       globalUniforms.time.value = t;
       label.userData.trackVisibility();
       controls.update();
-      light.position.copy(camera.position);
+      // light.position.copy(camera.position.clone());
       renderer.render(scene, camera);
       labelRenderer.render(scene, camera);
     };
@@ -524,13 +521,15 @@ let series = reactive([
       loader.load("/model/Apollo.gltf", function (gltf) {
         gltf.scene.traverse(function(child) {
           if (child.isMesh) {
-            Apollo = new THREE.InstancedMesh(child.geometry, Apollo_material, _station_data.length);
+            child.castShadow = true;
+            child.material.color = new THREE.Color("rgb(0,96,255)");
+            Apollo = new THREE.InstancedMesh(child.geometry, child.material, _station_data.length);
             for (let i = 0; i < _station_data.length; i++) {
                 var _p = calcPosFromLatLonRad(_station_data[i].lon, _station_data[i].lat, rad);
                 dummy.position.set(_p[0], _p[1], _p[2]);
                 dummy.scale.set(.01,.01,.01);
                 dummy.lookAt(dummy.position.clone().setLength(rad + 1));
-                dummy.rotation.y-=Math.PI/2;
+                // dummy.rotation.x-=Math.PI/2;
                 dummy.updateMatrix();
                 Apollo.setMatrixAt(i, dummy.matrix);
             }
@@ -555,8 +554,8 @@ let series = reactive([
     let dateEnd = ref('1971-02-04 07:40:55');
 
     let updateDate = (val) => {
-      console.log('updateDate',val);
-
+      // console.log('updateDate',val);
+      setTime(val.start,val.end);
     }//end: updateDate
 
     
