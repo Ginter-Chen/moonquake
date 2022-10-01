@@ -1,14 +1,14 @@
 <template>
-  <PageMain></PageMain>
+  <div id="app">
+  <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import PageMain from './components/page-main/index.vue';
 
 export default {
   name: 'App',
   components: {
-    PageMain
   }
 }
 </script>

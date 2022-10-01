@@ -3,6 +3,19 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 module.exports = ({
+  css: {
+    loaderOptions: {
+      scss: {
+          additionalData: `@import "src/assets/scss/style-import.scss";`,  // 共同import
+          sassOptions: {
+              includePaths: [
+                  'src/assets/scss'
+              ]
+          },
+
+      }, // end: scss,
+  }
+  },
   chainWebpack: config => {
     config.resolve.alias
         .set('@', resolve('src'))
