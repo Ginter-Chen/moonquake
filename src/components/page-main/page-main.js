@@ -9,6 +9,8 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import moment from 'moment';
 import VueApexCharts from "vue3-apexcharts";
 import UiTimeline from '../ui-timeline/index.vue';
+import UiTimeSlider from '../ui-time-slider/index.vue';
+
 
 /**
 * 經緯度
@@ -24,7 +26,10 @@ import { _ } from 'core-js';
 
 export default {
   name: 'page-main',
-  
+  components:{
+    UiTimeSlider,
+    UiTimeline,
+  },
   setup(){
 
     const markerLabel = ref(null)
@@ -222,6 +227,7 @@ let series = reactive([
     camera.position.x = 15;
     const renderer = new THREE.WebGLRenderer();
     document.body.appendChild(renderer.domElement);
+    // moonEle = renderer.domElement;
     renderer.setSize(window.innerWidth, window.innerHeight);
     let rad = 4; //半徑
     // 建立一個半徑為 1 的
@@ -544,6 +550,17 @@ let series = reactive([
       }
     }
 
+    // time slider 更新時間
+    let dateStart = ref('1970-04-15 02:09:41');
+    let dateEnd = ref('1971-02-04 07:40:55');
+
+    let updateDate = (val) => {
+      console.log('updateDate',val);
+
+    }//end: updateDate
+
+    
+
     return {
       markerLabel,
       clostBtn,
@@ -560,6 +577,10 @@ let series = reactive([
       event,
       chartOptions,
       series,
+      updateDate,
+      dateStart,
+      dateEnd,
+
 
     } //end: return;
 
