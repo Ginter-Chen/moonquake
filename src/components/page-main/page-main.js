@@ -227,9 +227,8 @@ let series = reactive([
     camera.position.x = 15;
     scene.add(camera);
     const renderer = new THREE.WebGLRenderer();
-    // document.getElementById('moon')
-    // document.body.appendChild(renderer.domElement);
-    // moonEle = renderer.domElement;
+    renderer.shadowMap.enabled = true
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap
     renderer.setSize(window.innerWidth, window.innerHeight);
     let rad = 4; //半徑
     // 建立一個半徑為 1 的
@@ -242,6 +241,7 @@ let series = reactive([
     const material = new THREE.MeshPhongMaterial({ map: texture, normalMap: normalMap });
 
     const Moon = new THREE.Mesh(geometry, material);
+    Moon.receiveShadow = true;
     scene.add(Moon);
     //Apollo
     var _station_data = [];
@@ -379,11 +379,12 @@ let series = reactive([
       let divDepth = depthRef.value;
       let divCrd = coordinatesRef.value;
 
-
+      // console.log(document.getElementById('moon').children[0].style.width);
       // 點擊事件
       window.addEventListener("pointerdown", event => {
         // console.log('pointerdown',event);
-        pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+        // pointer.x = (event.clientX / (window.innerWidth)) * 2 - 1;
+        pointer.x = ((event.clientX-200)/ window.innerWidth) * 2 - 1;
         pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
         if(state.mode==0){
@@ -474,6 +475,7 @@ let series = reactive([
       scene.add(markers);
     };
     const add_station = (value) => {
+      labelDiv.classList.add("hidden");
       scene.remove(markers);
       scene.remove(Apollo);
       _station_data = [];
@@ -526,7 +528,7 @@ let series = reactive([
       // Apollo = new THREE.InstancedMesh(Apollo_mesh, Apollo_material, _station_data.length);
       let dummy = new THREE.Object3D();
       var loader = new GLTFLoader();
-      loader.load("/model/Apollo2.gltf", function (gltf) {
+      loader.load("/model/Apollo4.gltf", function (gltf) {
         gltf.scene.traverse(function(child) {
           if (child.isMesh) {
             child.castShadow = true;
@@ -552,7 +554,7 @@ let series = reactive([
       if(state.mode==0){
         setTime();
       }else if (state.mode == 1){
-        add_station(0);
+        add_station();
       }
     }
 
