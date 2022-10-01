@@ -2,7 +2,15 @@
     padding: 0;
     margin: 0 ;
 }
-
+.test{
+  position: absolute;
+  z-index: 10;
+}
+.test2{
+  position: absolute;
+  left:200px;
+  z-index: 10;
+}
 #info{
     position: absolute;
     bottom: 1vh;
