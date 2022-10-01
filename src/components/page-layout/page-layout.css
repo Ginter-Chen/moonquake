@@ -1,6 +1,11 @@
 .page-layout {
 
 }
+.page-layout .layout-main-content{
+    background-color: #efefef;
+    box-sizing: border-box;
+    /* padding: 0 5%; */
+}
 #components-layout-demo-side .logo {
     height: 32px;
     margin: 16px;
@@ -72,3 +77,6 @@
  ::v-deep .ant-menu.ant-menu-root.ant-menu-vertical.ant-menu-inline-collapsed.ant-menu-dark.menu-block .menu-txt{
     display: none;
  }
+
+
+ 

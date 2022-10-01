@@ -1,5 +1,56 @@
 
 <section class="page-about">
-  <h1>page-about Component</h1>
+  <h2 class="title-block">
+    About <span class="focus">Moonquakes Website</span> 
+  </h2>
+  <div class="detail-block">
+    <div class="card-text-block">
+      <a-card class="card-text-item">
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+      </a-card>
+    </div>
+  </div>
+  <!-- how to use -->
+  <h2 class="title-block">
+    How to <span class="focus">use</span> it? 
+  </h2>
+  <div class="detail-block">
+    <div class="card-text-block">
+      <a-card class="card-text-item">
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>Card content</p>
+        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+      </a-card>
+    </div>
+  </div>
+  <!-- team mmember -->
+  <h2 class="title-block">
+    Team members
+  </h2>
+  <div class="detail-block">
+    <div class="card-list-block">
+      <a-row :gutter="16">
+        <a-col :span="4" v-for="(member, index) in members" :key="i">
+          <a-card :bordered="false">
+            <div class="img-block">
+              <img :src="require('@/assets/images/Profile0'+index+'.svg')" alt="">
+            </div>
+            <div class="desc-block">
+              <h5>{{member.memberName}}</h5>
+              <p class="position">{{member.position}}</p>
+            </div>
+          </a-card>
+        </a-col>
+      </a-row>
+    </div>
+  </div>
 </section>
 

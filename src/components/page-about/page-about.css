@@ -1,3 +1,47 @@
 .page-about {
 
+    box-sizing: border-box;
+    padding: 0 5%;
+}
+.page-about h2{
+    font-size: 36px;
+    letter-spacing: 0.3px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    color: #000;
+    margin-bottom: 0;
+    margin-top: 64px;
+}
+.page-about h2 .focus{
+    color: #0060FF;
+    
+}
+.page-about .card-list-block .img-block{
+    background-color: #0060FF;
+    text-align: center;
+}
+.page-about .card-list-block .img-block img{
+    max-width: 100%;
+    width: 100%;;
+    max-height: 175px;
+}
+.page-about .card-list-block .img-block, .page-about .card-list-block .desc-block{
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+
+.page-about .card-list-block :deep .ant-card-body{
+    padding: 0;
+
+}
+
+.page-about .card-list-block .desc-block h5{
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page-about .card-list-block .desc-block .position{
+    font-size: 14px;
+    text-align: center;
 }
