@@ -1,8 +1,14 @@
 import { ref, onMounted, reactive } from 'vue';
 import * as THREE from "three";
 
+
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer';
+// import VueTimeline from "vue-timeline-component"
+import moment from 'moment';
+import VueApexCharts from "vue3-apexcharts";
+import UiTimeline from '../ui-timeline/index.vue';
+
 /**
 * 經緯度
 * lon:經度
@@ -14,8 +20,8 @@ import { _ } from 'core-js';
 
 export default {
   name: 'page-main',
-  components: {},
-  setup() {
+  
+  setup(){
 
     const markerLabel = ref(null)
     const clostBtn = ref(null);
@@ -45,7 +51,128 @@ export default {
      * radius:地球半徑
      */
 
-    let points = (lng, lat, radius) => {
+  let event = reactive( [{
+    name: "event 1",
+    start: new Date(2020, 1,1),
+    end: new Date(2020, 1,4),
+},{
+    name: "event 2",
+    start: new Date(2020, 1,2),
+    end: new Date(2020, 1,5),
+},{
+    name: "event 3",
+    start: new Date(2020, 1,3),
+    end: new Date(2020, 1,10),
+}]);
+
+
+
+let chartOptions = reactive({
+  chart: {
+    height: 350,
+    type: 'rangeBar'
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true
+    }
+  },
+  dataLabels: {
+    enabled: true,
+    formatter: function(val) {
+      var a = moment(val[0])
+      var b = moment(val[1])
+      var diff = b.diff(a, 'days')
+      return diff + (diff > 1 ? ' days' : ' day')
+    }
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+      shade: 'light',
+      type: 'vertical',
+      shadeIntensity: 0.25,
+      gradientToColors: undefined,
+      inverseColors: true,
+      opacityFrom: 1,
+      opacityTo: 1,
+      stops: [50, 0, 100, 100]
+    }
+  },
+  xaxis: {
+    type: 'datetime'
+  },
+  legend: {
+    position: 'top'
+  }
+});
+let series = reactive([
+  {
+    name: 'Bob',
+    data: [
+      {
+        x: 'Design',
+        y: [
+          new Date('2019-03-05').getTime(),
+          new Date('2019-03-08').getTime()
+        ]
+      },
+      {
+        x: 'Code',
+        y: [
+          new Date('2019-03-08').getTime(),
+          new Date('2019-03-11').getTime()
+        ]
+      },
+      {
+        x: 'Test',
+        y: [
+          new Date('2019-03-11').getTime(),
+          new Date('2019-03-16').getTime()
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Joe',
+    data: [
+      {
+        x: 'Design',
+        y: [
+          new Date('2019-03-02').getTime(),
+          new Date('2019-03-05').getTime()
+        ]
+      },
+      {
+        x: 'Code',
+        y: [
+          new Date('2019-03-06').getTime(),
+          new Date('2019-03-09').getTime()
+        ]
+      },
+      {
+        x: 'Test',
+        y: [
+          new Date('2019-03-10').getTime(),
+          new Date('2019-03-19').getTime()
+        ]
+      }
+    ]
+  }
+])
+
+
+
+
+
+  /**
+   * 經緯度
+   * lng:經度
+   * lat:维度
+   * radius:地球半徑
+   */
+
+  let points  = (lng, lat, radius) => {
       const lg = THREE.MathUtils.degToRad(lng), lt = THREE.MathUtils.degToRad(lat);
       const y = radius * MathUtils.sin(lt);
       const temp = radius * MathUtils.cos(lt);
@@ -347,6 +474,10 @@ export default {
       coordinatesRef,
       info,
       setTime,
+      event,
+      chartOptions,
+      series,
+
     } //end: return;
 
   } // end: setup

@@ -17,7 +17,7 @@
         "tests/**/*.tsx",
         "src/lang/index.js",
         "sfc.d.ts"
-    ],
+, "src/router/index.js"    ],
     "exclude": [
         "node_modules"
     ],
