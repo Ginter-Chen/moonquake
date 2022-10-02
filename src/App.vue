@@ -1,8 +1,6 @@
 <template>
 
- <transition name="slide-fade">
-  <router-view :key="key"  v-slot="{ Component }"></router-view>
- </transition>
+  <router-view ></router-view>
 
 
 </template>

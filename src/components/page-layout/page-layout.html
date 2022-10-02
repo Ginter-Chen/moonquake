@@ -8,7 +8,7 @@
           <p class="top-txt">Moonquakes</p>
         </div>
         <a-menu class="menu-block" v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-          <a-menu-item class="menu-itm" @click="onClickMenu('work')" key="1">
+          <a-menu-item class="menu-itm" @click="onClickMenu('work',1)" key="1">
             <div class="icon-block">
               <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_work.svg')" alt="">
               <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_work-active.svg')" alt="">
@@ -16,7 +16,7 @@
             <span class="menu-txt">Work</span>
             <div class="bg-hover"></div>
           </a-menu-item>
-          <a-menu-item class="menu-itm" @click="onClickMenu('about')" key="2">
+          <a-menu-item class="menu-itm" @click="onClickMenu('about',2)" key="2">
             <div class="icon-block">
               <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_about.svg')" alt="">
               <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_about-active.svg')" alt="">
@@ -24,7 +24,7 @@
             <span class="menu-txt">About</span>
             <div class="bg-hover"></div>
           </a-menu-item>
-          <a-menu-item class="menu-itm" @click="onClickMenu('ref')" key="3">
+          <a-menu-item class="menu-itm" @click="onClickMenu('ref',3)" key="3">
             <div class="icon-block">
             <img class="style--icon style--normal" :src="require('@/assets/images/Icon_menu_reference.svg')" alt="">
             <img class="style--icon style--active" :src="require('@/assets/images/Icon_menu_reference-active.svg')" alt="">

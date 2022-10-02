@@ -25,9 +25,8 @@ export default {
     let collapsed = ref(false);
     let selectedKeys =  ref(['1']);
 
-    let onClickMenu = (itm) => {
+    let onClickMenu = (itm, key) => {
       console.log('onClickMenu', itm)
-      
       router.push({ name: itm });
       
     }

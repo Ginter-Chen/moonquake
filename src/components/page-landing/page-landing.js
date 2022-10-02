@@ -51,7 +51,7 @@ export default {
       this.isShake=true;
       setTimeout(()=> {
         this.$router.push({name: 'work'});
-      },600)
+      },950)
     }
   },
 }

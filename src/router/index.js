@@ -27,7 +27,7 @@ const routes = [
     },
     {
         path: '/',
-        redirect: '/main/work',
+        redirect: '/landing',
     },
     {
         path: '/main',
