@@ -46,6 +46,9 @@
     color: #0060FF;
 
 }
+::v-deep .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub{
+    background: transparent;
+}
 ::v-deep .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected .menu-txt{
     color: #0060FF;
 }
@@ -78,5 +81,11 @@
     display: none;
  }
 
+ ::v-deep .ant-layout-sider-trigger{
+    display: none;
+ }
+ :root .ant-layout-sider{
+    background: #1E1E1E;
+ }
 
  

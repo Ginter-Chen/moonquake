@@ -16,6 +16,8 @@
 .ui-time-slider .label-block{
     display: flex;
     justify-content: space-between;
+    height: 20px;
+    overflow: hidden;
 }
 :v-deep .slider-connect{
     background-color: #2F2F2F;

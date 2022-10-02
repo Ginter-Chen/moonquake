@@ -1,5 +1,10 @@
 <template>
-  <router-view></router-view>
+
+ <transition name="slide-fade">
+  <router-view :key="key"  v-slot="{ Component }"></router-view>
+ </transition>
+
+
 </template>
 
 <script>
@@ -7,6 +12,11 @@
 export default {
   name: 'App',
   components: {
+  },
+  computed: {
+    key() {
+      return this.$route.path;
+    }
   }
 }
 </script>
@@ -56,6 +66,24 @@ body{
 :root {
   --slider-connect-bg: #0060FF;
   --slider-bg: #2F2F2F;
+} 
+
+/*animation*/
+.slide-fade{
+ position: absolute;left:0;right: 0;
+}
+.slide-fade-enter-active {
+ transition: all 1.2s ease;
+}
+.slide-fade-leave-active {
+
+ transition: all .3s cubic-bezier(2.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+{
+ left:0;right: 0;
+ transform: translateX(50px);
+ opacity: 0;
 }
 
 </style>

@@ -9,9 +9,9 @@
     z-index: 10;
     height: 100%;
     width: 100%;
+    text-align: center;
 }
 .Logo{
-    width: 310px;
     height: 60px;
     margin-top: 44px;
     margin-left: 44px;
@@ -23,16 +23,25 @@
     color: white;
     font-size: 24px;
     letter-spacing: 1px;
+    max-width: 76%;
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 100%;
+    text-align: left;
+    padding-left: 69px;
 }
 .title{
-    width: 50%;
-    height: 309px;
-    /* margin-top: 278px;
-    margin-left: 129px; */
+    width: 100%;
+    min-height: 309px;
     color: white;
     font-size: 64px;
     letter-spacing: 3px;
     line-height: 98px;
+    max-width: 76%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: left;
+    padding-left:  69px;;
 }
 .start{
     width: 200px;
@@ -44,6 +53,7 @@
     line-height: 52px;
     background-color: #0060FF;
     border: none;
+    cursor: pointer;
 }
 
 .shaking {

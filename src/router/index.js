@@ -13,6 +13,7 @@ const routes = [
         path: '/landing',
         name: 'landing',
         component: pageLanding,
+        meta:  { transition: 'fade' },
     },
     {
         path: '/ui',
@@ -32,18 +33,22 @@ const routes = [
         path: '/main',
         name: 'Index',
         component: pageLayout,
+        meta:  { transition: 'fade' },
         children: [{
             path: 'work',
             name: 'work',
             component: pageMain,
+            meta:  { transition: 'fade' },
         },{
             path: 'ref',
             name: 'ref',
             component: pageRef,
+            meta:  { transition: 'fade' },
         },{
             path: 'about',
             name: 'about',
             component: pageAbout,
+            meta:  { transition: 'fade' },
         }]
     },
 
