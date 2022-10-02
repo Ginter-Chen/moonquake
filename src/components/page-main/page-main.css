@@ -50,11 +50,9 @@
     background-image: linear-gradient(to bottom, rgb(0, 96, 255,0.75), rgb(0, 96, 255,0.2));
     border: 2px solid #0060FF;
     border-radius: 5px;
-    margin-top: -100px;
-    /* margin-left: 120px; */
-    margin-left: 55;
+    margin-top: -150px;
+    margin-left: 45px;
     overflow: hidden;
-    /* padding: 0px; */
   }
   
   .hidden{
