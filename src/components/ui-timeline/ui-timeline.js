@@ -4,6 +4,7 @@ import VueApexCharts from "vue3-apexcharts";
 import {reactive, ref} from 'vue';
 import YearMonthData from '@/assets/json/event_count.json';
 import AllEventData from '@/assets/json/all_event.json'
+window.daySeries = []
 export default {
   name: 'ui-timeline',
   components: {
@@ -295,10 +296,8 @@ export default {
       })
 
       let _temp = [{name: 0, data: [..._tempArr]}]
-      datas.series = [..._temp];
-
-    
-      
+      window.daySeries = [..._temp];
+     
       console.log('data.series',datas.series);
       //end of series
 
@@ -334,6 +333,10 @@ export default {
         // },100)
       }
     }//end: goToDetail
+
+    let getSeries = function () {
+      return window.daySeries;
+  }
     
     return{
       chartOptions,
@@ -349,7 +352,7 @@ export default {
       test,
       goBack,
       days,
-      
+      getSeries,
     }
   }
 }
