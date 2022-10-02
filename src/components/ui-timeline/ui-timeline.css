@@ -12,6 +12,7 @@
     margin: 0 auto;
     left: 0;
     height: 136px;
+    border: 1px solid #FFFFFF;
 }
 .btn-back{
     color: #fff;
