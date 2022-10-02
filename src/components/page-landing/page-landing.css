@@ -1,3 +1,47 @@
 .page-landing {
-
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Inter';
+}
+.info{
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+}
+.Logo{
+    width: 310px;
+    height: 60px;
+    margin-top: 44px;
+    margin-left: 44px;
+    display: inline-block;
+    background-image: url("../../assets/images/Logo.png");
+    background-repeat: no-repeat;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.title{
+    width: 442px;
+    height: 309px;
+    margin-top: 278px;
+    margin-left: 129px;
+    color: white;
+    font-size: 64px;
+    letter-spacing: 3px;
+    line-height: 98px;
+}
+.start{
+    width: 200px;
+    height: 52px;
+    font-size: 20px;
+    margin-top: 63px;
+    margin-left: 1px;
+    border-radius: 32px;
+    line-height: 52px;
+    background-color: #0060FF;
+    border: none;
 }

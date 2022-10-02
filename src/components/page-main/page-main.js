@@ -22,7 +22,6 @@ import moonQuakeData from '../../assets/json/all_location.json';
 import stationData from '../../assets/json/all_station.json';
 import eventData from '../../assets/json/all_event.json';
 import { _ } from 'core-js';
-import { SpotLightHelper } from 'three';
 
 export default {
   name: 'page-main',
