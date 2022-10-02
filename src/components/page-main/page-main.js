@@ -461,7 +461,7 @@ export default {
             if (_moonquakeData[iid].type == "ai") {
               typeName = "<div style='line-height: 27px;text-align: center;font-size: 14px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #7000FF;'>Artificial Impacts</div>"
             } else if (_moonquakeData[iid].type == "m") {
-              typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #FF5C00;'>Thermal Moonquake</div>"
+              typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #FF5C00;'>Meteoroid Impact</div>"
             } else if (_moonquakeData[iid].type == "dm") {
               typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #FFA800;'>Deep Moonquake</div>"
             } else if (_moonquakeData[iid].type == "sm") {
