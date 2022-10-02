@@ -4,10 +4,16 @@ import pageMain  from '../components/page-main/index.vue';
 import pageLayout  from '../components/page-layout/index.vue';
 import pageAbout  from '../components/page-about/index.vue';
 import pageRef  from '../components/page-ref/index.vue';
+import pageLanding from '../components/page-landing/index.vue';
 
 
 
 const routes = [
+    {
+        path: '/landing',
+        name: 'landing',
+        component: pageLanding,
+    },
     {
         path: '/ui',
         name: 'Ui',
