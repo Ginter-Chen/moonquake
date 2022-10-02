@@ -41,8 +41,8 @@
     </div>
     <!-- day -->
     <div class="view-content-block style--day" v-else>
-      <div class="day-view-block"  v-if="datas.series.length > 0" >
-        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="datas.series"></apexchart>
+      <div class="day-view-block">
+        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="getSeries()"></apexchart>
       </div>
     </div>
     
