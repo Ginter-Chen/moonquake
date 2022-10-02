@@ -31,6 +31,16 @@ export default {
     let timeTransfer = (val) => {
       return Date.parse(val);
     }
+    
+    let yearsT = 1969;
+    let yearsE = 1977;
+    let years = [];
+
+    for(let i =yearsT ; i <=yearsE; i++  ){
+      years.push(i);
+    }
+
+  
 
     
     let step = reactive(1000*60);
@@ -114,6 +124,9 @@ export default {
       convetTimeStampToDate,
       timeStartDisplay,
       timeDisplay,
+      yearsT,
+      yearsE,
+      years
 
 
     } // end:return

@@ -21,6 +21,7 @@
 
 .breadcrumb{
     color: #fff;
+    text-align: left;
 }
 
 .ui-timeline .top-block{
@@ -130,11 +131,14 @@
     color: #fff;
 }
 
+
 .ui-timeline .count-total-view-block .count-line-block{
+    
     width: 100%;
     display: inline-block;
     height: 2px;
     background-color: rgba(255,255,255,0.3);
+    display: none;
 }
 
 .day-view-block .list-block{
@@ -168,5 +172,6 @@
     display: inline-block;
     color: #fff;
     justify-content: initial;
+    position: relative;
 
 }

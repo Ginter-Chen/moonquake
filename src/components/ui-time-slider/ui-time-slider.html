@@ -1,17 +1,16 @@
 
 <div class="ui-time-slider">
   <div class="info-block">
-    <p class="info-text">Range: {{timeDisplay.start}} </p>
+    <p class="info-text">{{timeDisplay.start}} </p>
     <div class="info-text"> ~ </div>
     <p class="info-text">{{timeDisplay.end}}</p>
   </div>
+  <div  class="sliders-block" >
   <Slider v-model="value" :tooltips="false"  @update="onUpdateSlider" :format="datesFormat" :min="startTime" :max="endTime" />
-  <div class="label-block">
-    <div class="start-block style--start">{{maxT}}</div>
-    <div class="start-block style--end">{{maxE}}</div>
+  <ul class="label-block">
+    <li  v-for="i in years">{{i}} </li>
+  </ul>
   </div>
-  <!-- <ul class="label-block" v-for="">
-    <li></li>
-  </ul> -->
+  
 </div>
 

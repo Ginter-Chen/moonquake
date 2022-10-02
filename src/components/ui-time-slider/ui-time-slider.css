@@ -1,5 +1,6 @@
 .ui-time-slider {
     position: absolute;
+    text-align: center;
     z-index: 10;
     bottom: 0;
     color: #fff;
@@ -18,11 +19,27 @@
     display: flex;
     justify-content: space-between;
     height: 20px;
-    overflow: hidden;
+    overflow: visible;
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 20px;
+}
+.ui-time-slider .label-block > li{
+    position: relative;
+    left: -8px;
 }
 :v-deep .slider-connect{
     background-color: #2F2F2F;
 }
+
+.sliders-block{
+    max-width: 80%;
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+
+}
+
 
 
 
@@ -59,3 +76,14 @@
 .ui-time-slider .info-block{
     display: flex;
 }
+/* 
+.ui-time-slider .label-block > li:before{
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    top: -20px;
+} */
