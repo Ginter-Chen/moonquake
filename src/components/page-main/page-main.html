@@ -13,7 +13,7 @@
     <div class="text" id="coordinates" ref="coordinatesRef">{{info.coord}}</div>
   </div>
   <div class="eventMode" v-if="state.mode == 1">
-    <div class="info">
+    <div class="info" v-if=" state.startTime != 0 && state.type != ''">
       <div v-if="state.startTime!=''" class="startTime">StartTime:{{state.startTime}}</div>
       <div v-if="state.duration!=''" class="duration">Duration:{{state.duration}}</div>
       <div v-if="state.type!=''" class="type">Type:{{state.type}}</div>
