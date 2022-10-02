@@ -629,7 +629,7 @@ export default {
 
 
     const onChange = (event) => {
-      
+      state.startTime = 0;
       state.mode = event;
       removeMoonMarker();
       if (state.mode == 0) {
