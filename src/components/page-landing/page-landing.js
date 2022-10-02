@@ -18,7 +18,7 @@ export default {
     initThree() {
       const scene = new THREE.Scene()
       scene.background = new THREE.Color('#000')
-      const canvas = document.querySelector('#moon')
+      const canvas = document.querySelector('#moonLanding')
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
       renderer.setSize(window.innerWidth, window.innerHeight);
       const camera = new THREE.PerspectiveCamera(
