@@ -10,19 +10,33 @@
     height: 32px;
     margin: 16px;
     background: rgba(255, 255, 255, 0.3);
-  }
+}
   
-  .site-layout .site-layout-background {
+.site-layout .site-layout-background {
     background: #fff;
-  }
-  [data-theme='dark'] .site-layout .site-layout-background {
+}
+[data-theme='dark'] .site-layout .site-layout-background {
     background: #141414;
-  }
+}
 
-  .top-block{
-    padding-bottom: 20px;
+.top-block{
+    padding: 20px 8px 20px 8px;
     color: #fff;
-  }
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.top-logo{
+    width: 48px;
+}
+
+.top-txt{
+    font-family: 'Inter';
+    font-size: 20px;
+    padding-left: 14px;
+    margin: 0;
+}
 
 .menu-block .icon-block .style--icon{
     width: 24px;
