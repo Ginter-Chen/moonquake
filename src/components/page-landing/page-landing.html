@@ -7,17 +7,17 @@
     <div class="title">
       Explore
       <div  ref="shake" :class="{shaking:isShake}">
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">M</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">o</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">o</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">n</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">q</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">u</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">a</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">c</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">k</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">e</span>
-        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()}s`">s</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">M</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">o</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">o</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">n</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">q</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">u</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">a</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">c</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">k</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">e</span>
+        <span class="fall" :class="[isShake ? 'falling' + Math.floor(Math.random()*4+1): '']" :style="`animation-delay: ${Math.random()/2}s`">s</span>
       </div>
       <button class="start" @click="onClickStart()">Start</button>
     </div>
