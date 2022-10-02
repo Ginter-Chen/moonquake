@@ -265,6 +265,7 @@ export default {
     // document.body.appendChild(labelRenderer.domElement);
     labelRenderer.render(scene, camera);//渲染
 
+    window.addEventListener("resize", onWindowResize);
     // 载入控制器
     const controls = new OrbitControls(camera, labelRenderer.domElement);
     controls.enablePan = false;
@@ -499,6 +500,15 @@ export default {
       // light.position.copy(camera.position.clone());
       renderer.render(scene, camera);
       labelRenderer.render(scene, camera);
+    };
+
+    function onWindowResize() {
+      let w=innerWidth-200;
+      let h=innerHeight+500;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      labelRenderer.setSize(w, h);
     };
     const setTime = (start, end) => {
       scene.remove(markers);

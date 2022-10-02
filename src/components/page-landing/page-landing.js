@@ -45,7 +45,13 @@ export default {
         Moon.rotation.x+=Math.PI/8000;
         requestAnimationFrame(animate)
       }
-      animate()
+      animate();
+      window.addEventListener("resize", onWindowResize);
+      function onWindowResize() {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(innerWidth, innerHeight);
+      };
     },
     onClickStart(){
       this.isShake=true;
