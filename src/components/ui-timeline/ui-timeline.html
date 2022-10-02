@@ -9,7 +9,17 @@
   </div> -->
   <div class="top-block">
     <div class="breadcrumb">
-      
+      <i class="icon btn-back" @click="goBack(viewLayer)">Back</i>
+      <i class="split" > > </i>
+      <span class="txt">{{viewLayer === 'YEAR' ? "YEAR"  :datas.selectedY}}</span>
+      <template v-if="viewLayer != 'YEAR'">
+        <i class="split"> / </i>
+        <span class="txt">{{viewLayer === 'MONTH' ? 'MONTH'  :datas.selectedM}}</span>
+      </template>
+      <!-- <template v-if="viewLayer != 'MOUNT'">
+        <i class="split"> > </i>
+        <span class="txt"> DATE </span>
+      </template> -->
     </div>
     <!-- year -->
     <div class="view-content-block style--year" v-if="viewLayer === 'YEAR'">
@@ -40,8 +50,34 @@
       </div>
     </div>
     <!-- day -->
-    <div class="view-content-block style--day" v-else>
+    <!-- <div class="view-content-block style--day" v-else>
       <div class="day-view-block"  v-if="datas.series.length > 0" >
+        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="datas.series"></apexchart>
+      </div>
+    </div> -->
+    <div class="view-content-block style--day" v-else>
+      <div class="day-view-block" >
+        <!-- <ul class="list-block" >
+          <li class="list-event" v-for="itm in datas.daysData" :style="`left: ${itm.day/days * 100}%`" >
+            {{itm.id}}
+            <div class="hover-block">
+              start: {{itm.start}}
+            </div>
+          </li>
+        </ul>
+        <ul class="num-count-block">
+          <li v-if="dataMonth.months" v-for="(itm, index) in dataMonth.months" >
+            <a href="javascript:;" class="count-block" :style="[{height: (itm / dataMonth.total) * 100 * 1.5 + '%'}]"  @click="goToDetail('DAY', index + 1)">
+              <div class="count-num-block">{{itm}}</div>
+            </a>
+            <div class="display-block">{{index + 1}}</div>
+          </li>
+
+          <li  v-for="(itm) in days" :style="`left: ${itm/days * 100 / 2}% `" >
+            <div class="display-block">{{itm}}</div>
+          </li>
+        </ul>
+        <div class="count-line-block"></div> -->
         <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="datas.series"></apexchart>
       </div>
     </div>

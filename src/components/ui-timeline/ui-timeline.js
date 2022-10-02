@@ -74,7 +74,9 @@ export default {
       selectedD: -1,
       allEvents: [],
       series: [],
+      daysData:[],
     })
+    let allEvents = [];
     let test = [];
 
     //series
@@ -112,7 +114,7 @@ export default {
 
     // allEvents
     AllEventData.forEach(item => {
-      datas.allEvents.push({
+      allEvents.push({
         id: item.id,
         start: item.start,
         end: item.end,
@@ -175,7 +177,6 @@ export default {
           }
       },
       },
-     
       plotOptions: {
         bar: {
           horizontal: true
@@ -213,7 +214,11 @@ export default {
     });
     
     let clickHandler = (event, chartContext, config) => {
-      emit('onClick', _index)
+      console.log('clickHandler',config);
+      console.log('chartContext',chartContext, config.dataPointIndex);
+      let temp = datas.series[0].data[config.dataPointIndex]
+      console.log('temp',temp)
+      // emit('onClick', temp)
     }
 
     let changeView = (type) => {
@@ -236,13 +241,35 @@ export default {
       console.log('dataMonth',dataMonth);
     }
 
+    let days = ref(30);
+
+    let chackDaysInMonth = (y, m) => {
+      let _y = y;
+      let _m = m;
+      // 1972, 1976 閏年
+      if((_y === 1927 || _y === 1976) && _m === 2){
+        return 29
+      }
+      else if(_m === 1 || _m === 3 || _m === 5 || _m === 7 || _m === 8 || _m === 10 || _m === 12){
+        return 31
+      }
+      else{
+        return 30
+      }
+      
+    }
+
+
     let getDayData = (y, m) => {
+      days.value = chackDaysInMonth(y, m);
       const _year = y;
       const _month = m;
       console.log('getDayData', _year, _month)
-      let _data = datas.allEvents.filter(itm => itm.year === _year && itm.month === _month )
+      let _data = allEvents.filter(itm => itm.year === _year && itm.month === _month )
       console.log('_data',_data)
       let _tempArr = []
+      datas.daysData  = [];
+
       //series
       datas.series = [];
       _data.forEach(itm => {
@@ -253,15 +280,45 @@ export default {
             Date.parse(itm.end)
           ]
         })
+
+        datas.daysData.push({
+          id: itm.id,
+          year: itm.year,
+          month: itm.month,
+          day: itm.day,
+          start: itm.start,
+          end: itm.end,
+          type: itm.type
+        });
+
+        //datas.daysData
       })
 
       let _temp = [{name: 0, data: [..._tempArr]}]
       datas.series = [..._temp];
-     
+
+    
+      
       console.log('data.series',datas.series);
       //end of series
 
     } // getDayData
+
+    let goBack = (view) => {
+      let _view = view;
+      console.log('_view',_view)
+      if(_view === 'YEAR'){
+
+      }
+      else if(_view === 'MONTH'){
+        changeView('YEAR');
+      }
+      else{
+        getYearMonthData( datas.selectedY );
+        changeView('MONTH');
+      }
+
+    }
 
     let goToDetail = (type, selected) => {
       if(type === 'YEAR'){
@@ -290,6 +347,8 @@ export default {
       datas,
       // series,
       test,
+      goBack,
+      days,
       
     }
   }

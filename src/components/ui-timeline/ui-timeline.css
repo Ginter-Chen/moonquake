@@ -13,6 +13,15 @@
     left: 0;
     height: 136px;
 }
+.btn-back{
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.breadcrumb{
+    color: #fff;
+}
 
 .ui-timeline .top-block{
     height: 100%;
@@ -126,4 +135,38 @@
     display: inline-block;
     height: 2px;
     background-color: rgba(255,255,255,0.3);
+}
+
+.day-view-block .list-block{
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+}
+
+.day-view-block .list-block .list-event{
+    /* position: ; */
+    background-color: rgba(255,255,255,0.5);
+    padding: 3px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 5px;
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    width: 20px;
+    border-radius: 5px;
+}
+.day-view-block .num-count-block{
+    display: flex;
+    width: 100%;
+}
+
+.ui-timeline .day-view-block .num-count-block > li{
+    left: 0;
+    height: auto;
+    text-align: left;
+    display: inline-block;
+    color: #fff;
+    justify-content: initial;
+
 }
