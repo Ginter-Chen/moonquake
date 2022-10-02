@@ -5,7 +5,7 @@ export default {
   props: [],
   data () {
     return {
-
+      isShake: false,
     }
   },
   computed: {
@@ -47,7 +47,10 @@ export default {
       }
       animate()
     },
-  }
+    onClickStart(){
+      this.isShake=true;
+    }
+  },
 }
 
 
