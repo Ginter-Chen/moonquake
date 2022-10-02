@@ -4,7 +4,8 @@
     <a-layout style="min-height: 100vh">
       <a-layout-sider v-model:collapsed="collapsed" collapsible>
         <div class="top-block">
-          <p>MoonQuake</p>
+          <img class="top-logo" :src="require('@/assets/images/Logo.png')" alt="">
+          <p class="top-txt">Moonquakes</p>
         </div>
         <a-menu class="menu-block" v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
           <a-menu-item class="menu-itm" @click="onClickMenu('work')" key="1">
