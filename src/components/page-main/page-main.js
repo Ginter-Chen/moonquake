@@ -45,7 +45,7 @@ export default {
     const depthRef = ref(null);
     const coordinatesRef = ref(null);
     let state = reactive({
-      mode: 1,
+      mode: 0,
       type: "",
       startTime: "",
       duration: "",
@@ -272,7 +272,7 @@ export default {
     controls.minDistance = 2;
     controls.maxDistance = 15;
     controls.enableDamping = false;
-    controls.autoRotate = true;  // 自轉開關
+    controls.autoRotate = false;  // 自轉開關
     controls.autoRotateSpeed *= 0.1;
 
     let gMarker
@@ -339,7 +339,7 @@ export default {
 
      
      
-      state.mode = 1;
+      // state.mode = 1;
       console.log('onMounted timeEventDatas',timeEventDatas)
 
       document.getElementById('moon').appendChild(renderer.domElement);
@@ -457,16 +457,16 @@ export default {
             let iid = intersections[0].instanceId;
             var typeName = "";
             if (_moonquakeData[iid].type == "ai") {
-              typeName = "Artificial Impacts"
+              typeName = "<div style='line-height: 27px;text-align: center;font-size: 14px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #7000FF;'>Artificial Impacts</div>"
             } else if (_moonquakeData[iid].type == "m") {
-              typeName = "Thermal Moonquake"
+              typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #FF5C00;'>Thermal Moonquake</div>"
             } else if (_moonquakeData[iid].type == "dm") {
-              typeName = "Deep Moonquake"
+              typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #FFA800;'>Deep Moonquake</div>"
             } else if (_moonquakeData[iid].type == "sm") {
-              typeName = "Shallow Moonquake"
+              typeName = "<div style='line-height: 27px;text-align: center;font-size: 16px;display: inline-block;width:168px;height:27px;border-radius: 2px;background: #3DA922;'>Shallow Moonquake</div>"
             }
             divID.innerHTML = `ID: <b>${_moonquakeData[iid].id}</b>`;
-            divType.innerHTML = `Type: <b>${typeName}</b>`;
+            divType.innerHTML = `Type: ${typeName}`;
             divDate.innerHTML = `Time: <b>` + (_moonquakeData[iid].date == null ? `Unknow` : `${_moonquakeData[iid].date}</b>`);
             divMagnitude.innerHTML = `Magnitude: <b>` + (_moonquakeData[iid].magnitude == null ? `Unknow` : `${_moonquakeData[iid].magnitude}</b>`);
             divDepth.innerHTML = `depth: <b>` + (_moonquakeData[iid].depth == null ? `Unknow` : `${_moonquakeData[iid].depth} KM</b>`);
@@ -474,7 +474,7 @@ export default {
             label.position.copy(_moonquakeData[iid].crd);
             label.element.animate([
               { width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px" },
-              { width: "230px", height: "96px", marginTop: "-60px", maginLeft: "30px" }
+              { width: "256px", height: "180px", marginTop: "-60px", maginLeft: "30px" }
             ], {
               duration: 250
             });

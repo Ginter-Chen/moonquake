@@ -4,7 +4,7 @@
   <div id="moon"></div>
   <div id="container"></div>
   <select class="typeChange" @change="onChange($event)">
-    <option value="0">有震央</option>
+    <option value="0">有震央{{state.mode}}</option>
     <option value="1">無震央</option>
   </select>
   <div id="markerLabel" class="hidden" ref="markerLabel">
@@ -27,7 +27,7 @@
   <div v-if="state.mode == 0" class="timeblock">
     <ui-time-slider :start="dateStart" :end="dateEnd" @updateTime="updateDate($event)" ></ui-time-slider>
   </div>
-  <div v-else class="timeblock">
+  <div v-if="state.mode == 1" class="timeblock">
     <ui-timeline v-if="timeEventDatas" @onClick="add_station($event)" :series="timeEventDatas"></ui-timeline>
   </div>
   
