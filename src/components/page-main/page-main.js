@@ -526,6 +526,7 @@ export default {
           }
         }
       } else {
+        _moonquakeData = [];
         for (let _m = 0; _m < moonQuakeData.length; _m++) {
           _moonquakeData.push(moonQuakeData[_m]);
         }
