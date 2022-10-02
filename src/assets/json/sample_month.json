@@ -1,0 +1,31 @@
+[
+    {
+        "year": 1969,
+        "count": 10,
+        "detail":[{
+            "month": 1,
+            "num": 10
+        },{
+            "month": 2,
+            "num": 5
+        },
+        {
+            "month": 3,
+            "num": 30
+        }]
+    },
+    {
+        "year": "1970",
+        "detail":[{
+            "month": "1",
+            "num": 10
+        },{
+            "month": "2",
+            "num": 5
+        },
+        {
+            "month": "3",
+            "num": 30
+        }]
+    }
+]

@@ -8,3 +8,92 @@
     width: 100%;
     display: inline-block;
 }
+
+
+.ui-timeline .select-switch-block{
+    display: flex;
+    max-width: 240px;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+    justify-content: center;
+    border: 1px solid #fff;
+    margin: 0 auto;
+    margin-bottom: 24p;
+}
+
+.ui-timeline .select-switch-block  .switch-block{
+    text-align: center;
+}
+
+.ui-timeline .select-switch-block > li{
+    color: #fff;
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.ui-timeline .select-switch-block > li.active{
+    background-color: rgba(255,255,255,0.4);
+    transition: .8s;
+}
+
+.ui-timeline .select-switch-block > li + li {
+    border-left: 1px solid #fff;
+}
+
+
+
+/** count */
+.ui-timeline .num-count-block{
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 200px; /* chart 高度*/
+}
+.ui-timeline .num-count-block > li{
+    display: inline-flex;
+    width: calc( 100% / 9 );
+    position: relative;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-timeline .count-total-view-block{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.ui-timeline .count-total-view-block.style--year{
+    
+}
+.ui-timeline .count-total-view-block  .count-block{
+    display: inline-block;
+    background-color: rgba(255,255,255,0.3);
+    box-sizing: border-box;
+    padding: 5px;
+    justify-content: center;
+    align-items: flex-end;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.ui-timeline .count-total-view-block .display-block{
+    position: absolute;
+    bottom: -27px;
+    color: #fff;
+}
+
+.ui-timeline .count-total-view-block .count-line-block{
+    width: 100%;
+    display: inline-block;
+    height: 2px;
+    background-color: rgba(255,255,255,0.3);
+}

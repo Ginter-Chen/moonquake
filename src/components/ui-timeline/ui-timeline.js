@@ -1,7 +1,7 @@
 
 import moment from 'moment';
 import VueApexCharts from "vue3-apexcharts";
-import {reactive} from 'vue';
+import {reactive, ref} from 'vue';
 export default {
   name: 'ui-timeline',
   components: {
@@ -37,8 +37,31 @@ export default {
         },]
       },
     },
+    dataYearMonth:{
+      type: Array,
+      default() {
+        return [{
+          year: 1969,
+          count: 20,
+          months:[10,20,30,40,50,60,5,18,9,43,22,18]
+        },{
+          year: 1970,
+          count: 120,
+          months:[10,20,30,40,50,60,5,18,9,43,22,18],
+        },
+        {
+          year: 1971,
+          count: 120,
+          months:[10,20,30,40,50,60,5,18,9,43,22,18]
+        }]
+      }
+    },
+
   },
   setup(props, {emit}){
+
+    let viewLayer = ref('YEAR');  // YEAR, MONTH, DAY
+
     let chartOptions = reactive({
       chart: {
         height: 200,
@@ -132,37 +155,20 @@ export default {
       let _index = config.seriesIndex;
       emit('onClick', _index)
     }
-    // let series = reactive([
-    //   {
-    //     name: '1',
-    //     data: [
-    //       {
-    //         x: 'Event',
-    //         y: [
-    //           Date.parse('1969-07-27 23:48:00'),
-    //           Date.parse('1969-07-29 00:40:00')
-    //         ]
-    //       },
-    //     ]
-    //   },
-    //   {
-    //     name: '2',
-    //     data: [
-    //       {
-    //         x: 'Event',
-    //         y: [
-    //           Date.parse('1969-07-28 11:46:00'),
-    //           Date.parse('1969-07-28 12:15:00')
-    //         ]
-    //       },
-    //     ]
-    //   }
-    // ])
+
+    let changeView = (type) => {
+      viewLayer.value = type;
+    }
+
+    // year view 
+    let yearsList = []
+    
     return{
       chartOptions,
       // series,
       clickHandler,
-
+      viewLayer,
+      changeView,
     }
   }
 }

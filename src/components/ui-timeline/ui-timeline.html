@@ -1,7 +1,45 @@
 
 <section class="ui-timeline">
+  <div class="switch-block">
+    <ul class="select-switch-block">
+      <li :class="[{'active': viewLayer === 'YEAR'}]" @click="changeView('YEAR')" > Year</li>
+      <li :class="[{'active': viewLayer === 'MONTH'}]" @click="changeView('MONTH')">Month</li>
+      <li :class="[{'active': viewLayer === 'DAY'}]" @click="changeView('DAY')">Day</li>
+    </ul>
+  </div>
   <div class="top-block">
-    <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :events="eventItm" :options="chartOptions" :series="series"></apexchart>
+    <!-- year -->
+    <div class="view-content-block style--year" v-if="viewLayer === 'YEAR'">
+      <div class="count-total-view-block style--year">
+        <ul class="num-count-block">
+          <li v-for="itm in dataYearMonth" >
+            <a href="javascript:;" class="count-block">{{itm.count}}</a>
+            <div class="display-block">{{itm.year}}</div>
+          </li>
+        </ul>
+        <div class="count-line-block"></div>
+      </div>
+    </div>
+    <!-- month -->
+    <div class="view-content-block style--month" v-else-if="viewLayer === 'MONTH'">
+      <div class="count-total-view-block style--month">
+        <ul class="num-count-block">
+          <li v-for="itm in dataYearMonth" >
+            <a href="javascript:;" class="count-block">{{itm.count}}</a>
+            <div class="display-block">{{itm.year}}</div>
+          </li>
+        </ul>
+        <div class="count-line-block"></div>
+      </div>
+    </div>
+    <!-- day -->
+    <div class="view-content-block style--day" v-else="viewLayer === 'DAY'">
+      <div class="day-view-block">
+        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :events="eventItm" :options="chartOptions" :series="series"></apexchart>
+      </div>
+    </div>
+    
+    
   </div>
   <div class="btm-block">
 

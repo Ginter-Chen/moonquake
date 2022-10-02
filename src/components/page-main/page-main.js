@@ -316,7 +316,7 @@ export default {
       let _data = eventData;
       let _handleData = [];
       _data.forEach((item, index) => {
-        if(index <= 10){
+        if(index < 400){
           _handleData.push({
           name: item.id,
           data:[{
@@ -339,7 +339,7 @@ export default {
 
      
      
-      state.mode = 0;
+      state.mode = 1;
       console.log('onMounted timeEventDatas',timeEventDatas)
 
       document.getElementById('moon').appendChild(renderer.domElement);
