@@ -52,4 +52,10 @@ body{
     margin-top: 4px;
 }
 
+/*slider*/
+:root {
+  --slider-connect-bg: #0060FF;
+  --slider-bg: #2F2F2F;
+}
+
 </style>

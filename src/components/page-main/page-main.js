@@ -611,7 +611,7 @@ export default {
 
 
     const onChange = (event) => {
-      state.mode = event.target.value;
+      state.mode = event;
       if (state.mode == 0) {
         setTime();
       } else if (state.mode == 1) {

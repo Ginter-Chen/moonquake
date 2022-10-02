@@ -3,10 +3,6 @@
   <div id="labels"></div>
   <div id="moon"></div>
   <div id="container"></div>
-  <select class="typeChange" @change="onChange($event)">
-    <option value="0">有震央</option>
-    <option value="1">無震央</option>
-  </select>
   <div id="markerLabel" class="hidden" ref="markerLabel">
     <button id="closeButton" ref="clostBtn">X</button>
     <div class="text" id="idNum" ref="idNumRef">{{info.id}}</div>
@@ -24,6 +20,12 @@
     </div>
   </div>
   <!-- timeline -->
+  <div class="switch-block">
+    <ul class="select-switch-block">
+      <li :class="[{'active': state.mode === 0}]" class="first" @click="onChange(0)" >Moonquakes Epicenter</li>
+      <li :class="[{'active': state.mode === 1}]" class="last"  @click="onChange(1)">Apollo Seismometers</li>
+    </ul>
+  </div>
   <div v-if="state.mode == 0" class="timeblock">
     <ui-time-slider :start="dateStart" :end="dateEnd" @updateTime="updateDate($event)" ></ui-time-slider>
   </div>

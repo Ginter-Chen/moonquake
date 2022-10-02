@@ -1,14 +1,22 @@
 .ui-timeline {
     position: absolute;
     bottom: 0;
-    background: rgba(255,255,255,0.2);
+    /* background: rgba(255,255,255,0.3); */
     padding: 10px;
     box-sizing: border-box;
     right: 0;
     width: 100%;
     display: inline-block;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+    max-width: 90%;
+    margin: 0 auto;
+    left: 0;
+    height: 136px;
 }
 
+.ui-timeline .top-block{
+    height: 100%;
+}
 
 .ui-timeline .select-switch-block{
     display: flex;
@@ -19,7 +27,7 @@
     justify-content: center;
     border: 1px solid #fff;
     margin: 0 auto;
-    margin-bottom: 24p;
+    margin-bottom: 44p;
 }
 
 .ui-timeline .select-switch-block  .switch-block{
@@ -44,14 +52,27 @@
 
 
 
+
+
 /** count */
+.ui-timeline .count-num-block{
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    height: 100%;
+}
 .ui-timeline .num-count-block{
     padding: 0;
     list-style-type: none;
     display: flex;
     margin: 0;
     width: 100%;
-    height: 200px; /* chart 高度*/
+    height: 85%; /* chart 高度*/
+    align-items: flex-end;
 }
 .ui-timeline .num-count-block > li{
     display: inline-flex;
@@ -60,6 +81,11 @@
     justify-content: center;
     padding: 0;
     margin: 0;
+    align-items: flex-end;
+    height: 100%;
+}
+.view-content-block{
+    height: 100%;
 }
 
 .ui-timeline .count-total-view-block{
@@ -67,6 +93,7 @@
     flex-wrap: wrap;
     width: 100%;
     padding-bottom: 20px;
+    height: 100%;
 }
 
 .ui-timeline .count-total-view-block.style--year{
@@ -76,12 +103,15 @@
     display: inline-block;
     background-color: rgba(255,255,255,0.3);
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 2px;
     justify-content: center;
     align-items: flex-end;
     color: #fff;
     cursor: pointer;
     text-decoration: none;
+    width: 45%;
+    text-align: center;
+    position: relative;
 }
 
 

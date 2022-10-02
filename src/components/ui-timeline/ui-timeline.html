@@ -1,19 +1,24 @@
 
 <section class="ui-timeline">
-  <div class="switch-block">
+  <!-- <div class="switch-block">
     <ul class="select-switch-block">
       <li :class="[{'active': viewLayer === 'YEAR'}]" @click="changeView('YEAR')" > Year</li>
       <li :class="[{'active': viewLayer === 'MONTH'}]" @click="changeView('MONTH')">Month</li>
       <li :class="[{'active': viewLayer === 'DAY'}]" @click="changeView('DAY')">Day</li>
     </ul>
-  </div>
+  </div> -->
   <div class="top-block">
+    <div class="breadcrumb">
+      
+    </div>
     <!-- year -->
     <div class="view-content-block style--year" v-if="viewLayer === 'YEAR'">
       <div class="count-total-view-block style--year">
         <ul class="num-count-block">
-          <li v-for="itm in dataYearMonth" >
-            <a href="javascript:;" class="count-block">{{itm.count}}</a>
+          <li v-if="dataYearMonth" v-for="itm in dataYearMonth">
+            <a href="javascript:;" class="count-block"  @click="goToDetail('YEAR',itm.year)" :style="[{height: (itm.count / totalEventYear) * 100 * 1.5 + '%'}]">
+              <div class="count-num-block">{{itm.count}}</div>
+            </a>
             <div class="display-block">{{itm.year}}</div>
           </li>
         </ul>
@@ -24,18 +29,20 @@
     <div class="view-content-block style--month" v-else-if="viewLayer === 'MONTH'">
       <div class="count-total-view-block style--month">
         <ul class="num-count-block">
-          <li v-for="itm in dataYearMonth" >
-            <a href="javascript:;" class="count-block">{{itm.count}}</a>
-            <div class="display-block">{{itm.year}}</div>
+          <li v-if="dataMonth.months" v-for="(itm, index) in dataMonth.months" >
+            <a href="javascript:;" class="count-block" :style="[{height: (itm / dataMonth.total) * 100 * 1.5 + '%'}]"  @click="goToDetail('DAY', index + 1)">
+              <div class="count-num-block">{{itm}}</div>
+            </a>
+            <div class="display-block">{{index + 1}}</div>
           </li>
         </ul>
         <div class="count-line-block"></div>
       </div>
     </div>
     <!-- day -->
-    <div class="view-content-block style--day" v-else="viewLayer === 'DAY'">
-      <div class="day-view-block">
-        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :events="eventItm" :options="chartOptions" :series="series"></apexchart>
+    <div class="view-content-block style--day" v-else>
+      <div class="day-view-block"  v-if="datas.series.length > 0" >
+        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="datas.series"></apexchart>
       </div>
     </div>
     
