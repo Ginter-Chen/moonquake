@@ -1,3 +1,18 @@
 .page-ref {
 
+    box-sizing: border-box;
+    padding: 0 5%;
+}
+.page-ref h2{
+    font-size: 36px;
+    letter-spacing: 0.3px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    color: #000;
+    margin-bottom: 0;
+    margin-top: 64px;
+}
+.page-ref h2 .focus{
+    color: #0060FF;
+    
 }
