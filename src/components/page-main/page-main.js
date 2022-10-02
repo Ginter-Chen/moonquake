@@ -237,7 +237,7 @@ export default {
     const geometry = new THREE.SphereGeometry(rad, 32, 16);
 
     // 上材質
-    const texture = new THREE.TextureLoader().load(require('assets/images/textures/lroc_color_poles_1k.jpg'));
+    const texture = new THREE.TextureLoader().load(require('assets/images/textures/lroc_color_poles_16k-q60.jpg'));
     const normalMap = new THREE.TextureLoader().load(require('assets/images/textures/ldem_3_8bit_turn.png'));
     // const material = new THREE.MeshBasicMaterial( { map: texture , normalMap: normalMap} );
     const material = new THREE.MeshPhongMaterial({ map: texture, normalMap: normalMap });
