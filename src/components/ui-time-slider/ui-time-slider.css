@@ -2,7 +2,6 @@
     position: absolute;
     z-index: 10;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
     color: #fff;
     width: 100vw;
     box-sizing: border-box;
@@ -11,7 +10,9 @@
     margin: 0 auto;
     left: 0;
     right: 0;
-    max-height: 136px;
+    height: 136px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid #FFFFFF;
 }
 .ui-time-slider .label-block{
     display: flex;
@@ -35,7 +36,15 @@
     text-align: left;
 }
 .info-block{
+    display: flex;
     align-items: center;
+    margin-bottom: 20px;
+}
+.info-block .info-text{
+    margin-bottom: 0;
+}
+.info-text{
+    padding: 0;
 }
 .info-text + .info-text{
     padding-left: 20px;

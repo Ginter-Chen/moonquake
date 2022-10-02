@@ -6,12 +6,21 @@
   <div class="detail-block">
     <div class="card-text-block">
       <a-card class="card-text-item">
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <h5>References</h5>
+        <ul class="list-link">
+          <li v-for="(itm) in datas">
+            <h6 class="title">{{itm.name}}</h6>
+            <a :href="itm.link" target="_blank" class="link">{{itm.link}}</a>  
+          </li>
+        </ul>
+        <!-- license -->
+        <h5 class="space--top">License</h5>
+        <ul class="list-link">
+          <li v-for="(itm) in license">
+            <span class="title"><a :href="itm.link" target="_blank" class="link">{{itm.name}}</a>, </span>
+            <span>which is licensed under {{itm.license}} software license.</span>
+          </li>
+        </ul>
       </a-card>
     </div>
   </div>

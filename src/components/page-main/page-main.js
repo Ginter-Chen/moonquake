@@ -548,6 +548,7 @@ export default {
       scene.add(markers);
     };
     const add_station = (value) => {
+      console.log('add_station',value);
       labelDiv.classList.add("hidden");
       scene.remove(markers);
       scene.remove(Apollo);
@@ -556,6 +557,7 @@ export default {
       state.startTime = "";
       if (value != undefined) {
         var _event = eventData[value];
+        console.log('_event',_event);
         if (_event["A11"]) {
           _station_data.push(stationData[0]);
         }

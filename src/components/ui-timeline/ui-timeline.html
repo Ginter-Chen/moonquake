@@ -9,8 +9,8 @@
   </div> -->
   <div class="top-block">
     <div class="breadcrumb">
-      <i class="icon btn-back" @click="goBack(viewLayer)">Back</i>
-      <i class="split" > > </i>
+      <i class="icon btn-back" v-if="viewLayer !== 'YEAR'" @click="goBack(viewLayer)">Back</i>
+      <i class="split"  v-if="viewLayer !== 'YEAR'"> > </i>
       <span class="txt">{{viewLayer === 'YEAR' ? "YEAR"  :datas.selectedY}}</span>
       <template v-if="viewLayer != 'YEAR'">
         <i class="split"> / </i>
@@ -60,7 +60,7 @@
     </div> -->
     <div class="view-content-block style--day" v-else>
       <div class="day-view-block">
-        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="200" :options="chartOptions" :series="getSeries()"></apexchart>
+        <apexchart @dataPointSelection="clickHandler" type="rangeBar" height="140" :options="chartOptions" :series="getSeries()"></apexchart>
       </div>
     </div>
     

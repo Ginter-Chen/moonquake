@@ -133,7 +133,7 @@ export default {
 
     let chartOptions = reactive({
       chart: {
-        height: 200,
+        height: 140,
         type: 'rangeBar',
         selection: {
           enabled: true,
@@ -183,6 +183,16 @@ export default {
           horizontal: true
         }
       },
+      tooltip: {
+        enabled: false,
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          console.log('w',w)
+          return '<div class="detailBlock">' + w +
+            '<span>' + series[seriesIndex][dataPointIndex] + '</span>' +
+            '</div>'
+        }
+        
+      },  
       // dataLabels: {
       //   enabled: true,
       //   formatter: function(val) {
@@ -193,6 +203,7 @@ export default {
       //   }
       // },
       fill: {
+        color: '#fff',
         type: 'gradient',
         gradient: {
           shade: 'light',
@@ -206,7 +217,10 @@ export default {
         }
       },
       xaxis: {
-        type: 'datetime'
+        type: 'datetime',
+        style:{
+          // colors: '#fff',
+        }
       },
       legend: {
         position: 'top',
@@ -215,11 +229,10 @@ export default {
     });
     
     let clickHandler = (event, chartContext, config) => {
-      console.log('clickHandler',config);
-      console.log('chartContext',chartContext, config.dataPointIndex);
-      let temp = datas.series[0].data[config.dataPointIndex]
-      console.log('temp',temp)
-      // emit('onClick', temp)
+      // console.log('chartContext',chartContext, config.dataPointIndex);
+      let temp = window.daySeries[0].data[config.dataPointIndex]
+      console.log('temp',temp);
+      emit('onClick', temp.id - 1)
     }
 
     let changeView = (type) => {
@@ -279,7 +292,8 @@ export default {
           y: [
             Date.parse(itm.start),
             Date.parse(itm.end)
-          ]
+          ],
+          id: itm.id
         })
 
         datas.daysData.push({

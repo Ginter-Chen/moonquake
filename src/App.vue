@@ -23,6 +23,7 @@ export default {
 body{
   margin: 0;
   padding: 0;
+  font-family: '微軟正黑體', Arial;
 }
 
  /**

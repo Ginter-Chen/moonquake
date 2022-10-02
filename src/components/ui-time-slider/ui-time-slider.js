@@ -31,6 +31,7 @@ export default {
     let timeTransfer = (val) => {
       return Date.parse(val);
     }
+
     
     let step = reactive(1000*60);
     let barMinValue =  reactive(10);
@@ -39,6 +40,7 @@ export default {
 
     let endTime = computed(() => Date.parse(props.maxE));
     console.log('props.endTime',endTime.value, props.maxE);
+    
     
 
     // let transferRatioRange = (timeString) => {

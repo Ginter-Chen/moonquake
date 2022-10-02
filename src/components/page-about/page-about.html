@@ -6,12 +6,7 @@
   <div class="detail-block">
     <div class="card-text-block">
       <a-card class="card-text-item">
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>Our team converted more than 10,000 pieces of data detected by NASA Apollo seismometers between 1969 and 1977 into the website and used 3D coordinates to mark the epicenter of a time and the location of Apollo seismometers. We visualized the data to the graphics to help  people engage better with moonquakes. We also hope that scientists can use this website to easily see the time of moonquakes.</p>
       </a-card>
     </div>
   </div>
@@ -22,12 +17,7 @@
   <div class="detail-block">
     <div class="card-text-block">
       <a-card class="card-text-item">
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
-        <p>Card content</p>
-        <p>Card content Card content Card content Card content Card content Card content Card content Card content</p>
+        <p>The user can use the rotate and zoom tool to get the view of the full moon and use the slider to set the time to see the moonquake location in the 3D moon model. The details of the moonquakes are also shown (ID number, type, magnitude, depth). The user can also see the location of the Apollo seismometers.</p>
       </a-card>
     </div>
   </div>
@@ -39,7 +29,7 @@
     <div class="card-list-block">
       <a-row :gutter="16">
         <a-col :span="4" v-for="(member, index) in members" :key="i">
-          <a-card :bordered="false">
+          <a-card :bordered="false" @click="onClickCard(member.link)">
             <div class="img-block">
               <img :src="require('@/assets/images/Profile0'+index+'.svg')" alt="">
             </div>

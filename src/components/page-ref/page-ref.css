@@ -16,3 +16,34 @@
     color: #0060FF;
     
 }
+
+.page-ref .list-link{
+    padding: 0;
+    list-style-type: none;
+    ;
+}
+.page-ref .list-link > li {
+    margin-bottom: 20px;
+}
+
+.page-ref h5{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.space--top{
+    margin-top: 40px;
+}
+
+.page-ref .list-link h6{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+.page-ref .list-link .link{
+    font-size: 14px;
+    text-decoration: underline
+    
+}
