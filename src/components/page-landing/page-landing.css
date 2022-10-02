@@ -1,3 +1,95 @@
 .page-landing {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Inter';
+}
+.info{
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+}
+.Logo{
+    width: 310px;
+    height: 60px;
+    margin-top: 44px;
+    margin-left: 44px;
+    display: inline-block;
+    background-image: url("../../assets/images/Logo.png");
+    background-repeat: no-repeat;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.title{
+    width: 50%;
+    height: 309px;
+    /* margin-top: 278px;
+    margin-left: 129px; */
+    color: white;
+    font-size: 64px;
+    letter-spacing: 3px;
+    line-height: 98px;
+}
+.start{
+    width: 200px;
+    height: 52px;
+    font-size: 20px;
+    margin-top: 63px;
+    margin-left: 1px;
+    border-radius: 32px;
+    line-height: 52px;
+    background-color: #0060FF;
+    border: none;
+}
 
+.shaking {
+	animation: shake 0.2s linear;
+	animation-iteration-count: 2;
+	width: calc(100% - 3em);
+}
+
+.shaking span {
+	animation-duration: 0.2s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+	display: inline-block;
+}
+
+.falling1 {
+	animation-name: fall1;
+}
+.falling2 {
+	animation-name: fall2;
+}
+.falling3 {
+	animation-name: fall3;
+}
+.falling4 {
+	animation-name: fall4;
+}
+
+@keyframes shake {
+	from, 50%, to {transform: translateX(0);}
+	25% {transform: translateX(0.4em);}
+	75% {transform: translateX(-0.4em);}
+}
+@keyframes fall1 {
+	from {transform: translateY(0) rotate(0deg);}
+	to {transform: translateY(1.5em) rotate(30deg);}
+}
+@keyframes fall2 {
+	from {transform: translateY(0) rotate(0deg);}
+	to {transform: translateY(1.5em) rotate(15deg);}
+}
+@keyframes fall3 {
+	from {transform: translateY(0) rotate(0deg);}
+	to {transform: translateY(1.5em) rotate(-30deg);}
+}
+@keyframes fall4 {
+	from {transform: translateY(0) rotate(0deg);}
+	to {transform: translateY(1.5em) rotate(-15deg);}
 }
